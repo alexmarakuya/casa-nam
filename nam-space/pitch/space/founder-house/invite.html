@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Invitation to the Eight · NāM Founder House</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232b3a2c'/%3E%3Cg transform='translate(16,16)' stroke='%23d56b45' stroke-width='2.8' stroke-linecap='round'%3E%3Cline x1='0' y1='-8' x2='0' y2='8'/%3E%3Cline x1='-6.93' y1='-4' x2='6.93' y2='4'/%3E%3Cline x1='-6.93' y1='4' x2='6.93' y2='-4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f2e8;
+    --bg-warm: #f0ebd8;
+    --nav-h: 52px;
+    --green: #2a3a2b;
+    --terracotta: #d46b44;
+    --terracotta-light: #e07a55;
+    --text: #2a3a2b;
+    --text-secondary: #5a6a5b;
+    --text-muted: #8a9a8b;
+    --border: #d4d0c4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { height: 100%; overflow: hidden; }
+  body { height: 100%; margin: 0; overflow: hidden; font-family: 'Epilogue', sans-serif; color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
+
+  .deck-wrapper { flex: 1 1 0; min-height: 0; overflow: hidden; }
+  .deck { display: flex; height: 100%; width: max-content; transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); }
+  .slide { width: 100vw; height: 100%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 70px 100px 40px; position: relative; overflow: hidden; }
+
+  /* Entrance animation */
+  .slide-inner { max-width: 1400px; width: 100%; position: relative; z-index: 2; opacity: 0; transform: translateY(12px); transition: opacity 0.65s ease 0.2s, transform 0.65s ease 0.2s; }
+  .slide.active .slide-inner { opacity: 1; transform: translateY(0); }
+  .slide .img-full-caption { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s; }
+  .slide.active .img-full-caption { opacity: 1; transform: translateY(0); }
+  .beat { opacity: 0; transform: translateY(10px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .slide.active .beat { opacity: 1; transform: translateY(0); }
+  .slide.active .beat:nth-child(1) { transition-delay: 0.15s; }
+  .slide.active .beat:nth-child(2) { transition-delay: 0.32s; }
+  .slide.active .beat:nth-child(3) { transition-delay: 0.49s; }
+  .slide.active .beat:nth-child(4) { transition-delay: 0.62s; }
+  .slide.active .beat:nth-child(5) { transition-delay: 0.75s; }
+  .slide.active .beat:nth-child(6) { transition-delay: 0.88s; }
+
+  /* Backgrounds */
+  .bg-cream { background: var(--bg); }
+  .bg-warm  { background: var(--bg-warm); }
+  .bg-green { background: var(--green); color: var(--bg); }
+  .bg-dark  { background: #1a1a18; color: var(--bg); }
+
+  /* Grain */
+  .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.26; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); background-size: 180px 180px; mix-blend-mode: overlay; }
+
+  /* Watermark */
+  .watermark::before { content: ''; position: absolute; pointer-events: none; z-index: 0; background-image: url('../../../assets/River.png'); background-repeat: no-repeat; opacity: 0.035; mix-blend-mode: multiply; }
+  .wm-tr::before { width: 65%; height: 110%; top: -15%; right: -10%; background-size: contain; background-position: top right; }
+  .wm-bl::before { width: 60%; height: 110%; bottom: -15%; left: -8%; top: auto; background-size: contain; background-position: bottom left; transform: rotate(180deg); }
+
+  /* Full-bleed image */
+  .img-full { padding: 0 !important; }
+  .img-full img { width: 100%; height: 100%; object-fit: cover; display: block; position: absolute; inset: 0; }
+  .img-full-overlay { position: absolute; inset: 0; pointer-events: none; }
+  .img-full-caption { position: absolute; bottom: 96px; left: 100px; right: 100px; z-index: 2; }
+
+  /* Swiss split */
+  .swiss-split { padding: 0 !important; display: flex; height: 100%; }
+  .swiss-split-img { width: 52%; flex-shrink: 0; align-self: stretch; position: relative; overflow: hidden; }
+  .swiss-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .swiss-split-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.75) 0%, rgba(26,26,24,0.2) 60%, rgba(26,26,24,0.05) 100%); pointer-events: none; }
+  .swiss-split-caption { position: absolute; bottom: 44px; left: 52px; right: 52px; color: #fff; z-index: 2; }
+  .swiss-split-bar { width: 5px; flex-shrink: 0; background: var(--terracotta); }
+  .swiss-split-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 70px 80px 50px; min-width: 0; background: var(--bg); overflow-y: auto; scrollbar-width: none; }
+  .swiss-split-content::-webkit-scrollbar { display: none; }
+  .swiss-split-content.bg-green { background: var(--green); }
+  .swiss-split-content.bg-dark  { background: #1a1a18; }
+
+  /* Typography */
+  .label { font-family: 'Sometype Mono', monospace; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; margin-bottom: 1.25rem; }
+  .bg-green .label, .bg-dark .label { color: var(--terracotta-light); }
+
+  /* Big quote — the emotional center of this deck */
+  .big-quote { font-family: 'Epilogue', sans-serif; font-size: clamp(2.4rem, 4.5vw, 4.2rem); font-weight: 300; line-height: 1.2; letter-spacing: -0.02em; }
+  .big-quote em { font-style: italic; color: var(--terracotta); }
+  .bg-green .big-quote { color: var(--bg); }
+  .bg-dark .big-quote { color: var(--bg); }
+
+  /* Medium prose */
+  .prose { font-family: 'Sometype Mono', monospace; font-size: clamp(1rem, 1.6vw, 1.22rem); color: var(--text-secondary); line-height: 1.8; font-weight: 400; max-width: 680px; }
+  .bg-green .prose { color: rgba(244,242,232,0.65); }
+  .bg-dark .prose  { color: rgba(244,242,232,0.6); }
+
+  /* Divider line */
+  .tc-line { width: 48px; height: 3px; background: var(--terracotta); border-radius: 2px; margin-bottom: 2rem; }
+
+  /* Hero number */
+  .hero-num { font-family: 'Epilogue', sans-serif; font-size: clamp(5rem, 10vw, 9rem); font-weight: 500; line-height: 0.9; letter-spacing: -0.04em; color: var(--terracotta); }
+
+  /* Slide number debug */
+  .sn { position: absolute; top: 32px; right: 44px; font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: rgba(42,58,43,0.25); letter-spacing: 0.1em; z-index: 3; }
+  .bg-green .sn, .bg-dark .sn { color: rgba(244,242,232,0.18); }
+
+  /* Nav */
+  .nav-bar { position: relative; flex-shrink: 0; z-index: 100; background: var(--green); display: flex; align-items: center; justify-content: center; padding: 0 30px; height: var(--nav-h); }
+  .nav-arrow { background: none; border: none; color: rgba(244,242,232,0.7); width: 56px; height: 56px; border-radius: 6px; cursor: pointer; font-size: 1.65rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s, opacity 0.2s; font-family: 'Sometype Mono', monospace; flex-shrink: 0; }
+  .nav-arrow:hover { color: var(--bg); }
+  .nav-arrow:disabled { opacity: 0.15; pointer-events: none; }
+  .slide-counter { display: flex; align-items: center; justify-content: center; gap: 6px; font-family: 'Epilogue', sans-serif; font-size: 0.82rem; color: rgba(244,242,232,0.85); cursor: pointer; padding: 4px 10px; border-radius: 6px; border: none; background: none; transition: color 0.2s; user-select: none; white-space: nowrap; width: 220px; }
+  .slide-counter:hover { color: var(--bg); }
+  .slide-counter.nav-active { color: var(--terracotta); }
+  .counter-num { font-family: 'Sometype Mono', monospace; font-size: 0.72rem; opacity: 0.6; font-weight: 500; }
+  .counter-name { font-weight: 500; letter-spacing: 0.01em; overflow: hidden; text-overflow: ellipsis; }
+  .share-btn { position: absolute; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; background: none; border: none; padding: 5px 2px; cursor: pointer; color: rgba(244,242,232,0.5); transition: color 0.2s; }
+  .share-btn:hover { color: rgba(244,242,232,0.9); }
+
+  /* Slide nav dropdown */
+  .slide-nav-dropdown { display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%) scale(0.96); width: 33vw; max-height: 66vh; overflow-y: auto; background: var(--bg); border: 1px solid rgba(42,58,43,0.1); border-radius: 10px; z-index: 999; padding: 12px 0; scrollbar-width: thin; opacity: 0; transition: opacity 0.25s ease, transform 0.25s ease; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+  .slide-nav-dropdown.open { display: block; }
+  .slide-nav-dropdown.visible { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+  .slide-nav-section { font-family: 'Sometype Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); padding: 14px 24px 8px; font-weight: 600; }
+  .slide-nav-item { display: flex; align-items: center; gap: 14px; padding: 9px 24px; cursor: pointer; transition: background 0.15s; font-family: 'Epilogue', sans-serif; font-size: 0.95rem; color: rgba(42,58,43,0.55); }
+  .slide-nav-item:hover { background: rgba(42,58,43,0.05); color: var(--green); }
+  .slide-nav-item.current { color: var(--green); background: rgba(42,58,43,0.04); }
+  .slide-nav-item-num { font-family: 'Sometype Mono', monospace; font-size: 0.82rem; color: rgba(42,58,43,0.3); min-width: 26px; text-align: right; flex-shrink: 0; }
+  .slide-nav-item.current .slide-nav-item-num { color: var(--terracotta); }
+  .slide-nav-backdrop { display: none; position: fixed; inset: 0; z-index: 998; background: rgba(0,0,0,0.3); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity 0.25s ease; }
+  .slide-nav-backdrop.open { display: block; }
+  .slide-nav-backdrop.visible { opacity: 1; }
+
+  /* Progress */
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--terracotta); transition: width 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); opacity: 0.85; z-index: 200; pointer-events: none; }
+
+  /* Env badge */
+  .env-badge { position: fixed; top: 12px; left: 12px; z-index: 300; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; cursor: default; }
+  .env-badge::before { content: ''; position: absolute; inset: 0; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); opacity: 0.45; transition: opacity 0.3s; }
+  .env-badge:hover::before { opacity: 1; }
+  .env-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; position: relative; z-index: 1; animation: env-pulse 2s ease-in-out infinite; }
+  .env-dot-staging { background: #f5a623; } .env-dot-local { background: #4cd964; }
+  .env-label { font-family: 'Sometype Mono', monospace; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); white-space: nowrap; position: absolute; left: 100%; margin-left: 6px; padding: 0 8px; height: 24px; line-height: 24px; border-radius: 6px; background: rgba(0,0,0,0.55); backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .env-badge:hover .env-label { opacity: 1; }
+  @keyframes env-pulse { 0%,100%{opacity:1}50%{opacity:0.5} }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .slide { padding: 50px 56px 36px; }
+    .swiss-split-content { padding: 50px 44px 36px; }
+    .img-full-caption { left: 56px; right: 56px; }
+    .swiss-split-img { width: 48%; }
+  }
+  @media (max-width: 768px) {
+    .slide { padding: 16px 24px 12px; align-items: flex-start !important; }
+    .sn { display: none !important; }
+    .img-full-caption { left: 24px; right: 24px; bottom: 24px; }
+    .swiss-split { flex-direction: column; }
+    .swiss-split-img { width: 100%; height: 38vh; }
+    .swiss-split-bar { width: 100%; height: 4px; }
+    .swiss-split-content { padding: 24px; }
+    .slide-nav-dropdown { width: calc(100vw - 32px); }
+    .big-quote { font-size: clamp(1.8rem, 6vw, 2.8rem); }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+<div class="env-badge" id="envBadge" style="display:none;"><div class="env-dot" id="envDot"></div><span class="env-label" id="envLabel"></span></div>
+
+<div class="deck-wrapper">
+<div class="deck" id="deck">
+
+
+<!-- 01 — Cover -->
+<section class="slide img-full grain" id="v1">
+  <img src="/assets/fh-exterior-village.png" alt="NāM Founder House" style="object-position:center 35%;">
+  <div class="img-full-overlay" style="background:linear-gradient(to top, rgba(26,26,24,0.92) 0%, rgba(26,26,24,0.6) 45%, rgba(26,26,24,0.3) 100%);"></div>
+  <div class="img-full-caption" style="bottom:80px;">
+    <p style="font-family:'Sometype Mono',monospace;font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(244,242,232,0.5);margin-bottom:1.5rem;">N&#x101;M Space &middot; Koh Phangan, Thailand</p>
+    <h1 style="font-family:'Epilogue',sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.1;color:#fff;letter-spacing:-0.02em;">An Invitation<br>to the Eight.</h1>
+    <p style="font-family:'Sometype Mono',monospace;font-size:0.9rem;color:rgba(244,242,232,0.45);margin-top:1.75rem;letter-spacing:0.04em;">Founding member invitation &mdash; N&#x101;M Founder House</p>
+  </div>
+  <div class="sn">01</div>
+</section>
+
+
+<!-- 02 — The Person -->
+<section class="slide bg-dark grain watermark" style="position:relative;" id="v2">
+  <div class="slide-inner" style="max-width:860px;">
+    <div class="beat tc-line"></div>
+    <p class="beat big-quote" style="color:var(--bg);">There is a kind of person who has done enough of life to know that the next thing isn&rsquo;t <em>more</em>.</p>
+    <p class="beat" style="font-family:'Sometype Mono',monospace;font-size:1.1rem;color:rgba(244,242,232,0.45);margin-top:2rem;line-height:1.9;">More travel. More success. More cities. More noise.</p>
+  </div>
+  <div class="sn">02</div>
+</section>
+
+
+<!-- 03 — Somewhere to Land -->
+<section class="slide bg-green grain" id="v3">
+  <div class="slide-inner" style="max-width:900px;">
+    <p class="beat big-quote" style="font-size:clamp(3rem,6vw,5.5rem);font-weight:300;">The next thing is <em>somewhere to land</em>.</p>
+    <p class="beat" style="font-family:'Sometype Mono',monospace;font-size:1.15rem;color:rgba(244,242,232,0.5);margin-top:2.5rem;line-height:1.85;">A place. With your name on it.<br>Where you can come and go for thirty years<br>and the door always opens.</p>
+    <p class="beat" style="font-family:'Sometype Mono',monospace;font-size:0.85rem;color:rgba(244,242,232,0.3);margin-top:2.5rem;letter-spacing:0.1em;text-transform:uppercase;">That&rsquo;s what we&rsquo;re building. And we&rsquo;re looking for eight people to build it with us.</p>
+  </div>
+  <div class="sn">03</div>
+</section>
+
+
+<!-- 04 — The Land -->
+<section class="slide swiss-split grain" id="v4">
+  <div class="swiss-split-img">
+    <img src="/assets/fh-exterior-warm.png" alt="NāM land, Koh Phangan" style="object-position:center center;">
+    <div class="swiss-split-overlay"></div>
+    <div class="swiss-split-caption">
+      <p style="font-family:'Sometype Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.75rem;">Koh Phangan &middot; Thailand</p>
+      <h2 style="font-family:'Epilogue',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:#fff;line-height:1.2;">Forest. Slope.<br>Ocean in the distance.</h2>
+    </div>
+  </div>
+  <div class="swiss-split-bar"></div>
+  <div class="swiss-split-content">
+    <div class="label">What it is</div>
+    <div class="beat" style="margin-bottom:2rem;">
+      <p class="big-quote" style="font-size:clamp(1.8rem,3vw,2.8rem);">Almost 5,000 square meters of land on Koh Phangan, in the south of Thailand.</p>
+    </div>
+    <div class="beat prose" style="margin-bottom:1.5rem;">Held directly under Thai title because I am Thai. No nominee structures. No grey areas.</div>
+    <div class="beat prose">On that land, eight units. Each one held by a founding member on a 30-year registered leasehold under Thai law. Yours. Not a timeshare. Not a points program. A real property right, recognized by the Land Department, recorded with your name.</div>
+  </div>
+  <div class="sn">04</div>
+</section>
+
+
+<!-- 05 — Eight is the Number -->
+<section class="slide bg-cream grain watermark wm-tr" id="v5">
+  <div class="slide-inner" style="max-width:900px;">
+    <div class="label beat">The village</div>
+    <p class="beat big-quote">We are not building a hotel.<br>We are not pretending we are.</p>
+    <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:1.5rem;">
+      <p class="beat prose">We are exactly at eight units because that is where the Hotel Act draws its line, and we have no interest in crossing it.</p>
+      <p class="beat prose" style="color:var(--terracotta);font-family:'Epilogue',sans-serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:400;line-height:1.4;">Eight is the number.<br>Eight people.<br>That&rsquo;s the village.</p>
+    </div>
+  </div>
+  <div class="sn">05</div>
+</section>
+
+
+<!-- 06 — Your Unit -->
+<section class="slide bg-green grain" id="v6">
+  <div class="slide-inner" style="max-width:1100px;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+    <div>
+      <div class="label beat">Your unit</div>
+      <p class="beat big-quote" style="font-size:clamp(2.2rem,3.8vw,3.6rem);">For thirty years.<br>Come whenever.<br>Stay as long as you want.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2rem;">
+      <div class="beat" style="padding-bottom:2rem;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(244,242,232,0.4);margin-bottom:0.6rem;">Your right</p>
+        <p class="prose">Bring whoever you want. Leave whenever you need. The lease is in your name. The Land Department has your record.</p>
+      </div>
+      <div class="beat" style="padding-bottom:2rem;border-bottom:1px solid rgba(244,242,232,0.1);">
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(244,242,232,0.4);margin-bottom:0.6rem;">The campus</p>
+        <p class="prose">A wellness core. A coworking space that doesn&rsquo;t feel like one. A café. A studio. Quiet places. Loud places. Trees that were already there before we arrived.</p>
+      </div>
+      <div class="beat">
+        <p style="font-family:'Sometype Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(244,242,232,0.4);margin-bottom:0.6rem;">The neighbors</p>
+        <p class="prose">Seven other people who chose this the same way you did. That&rsquo;s the whole list.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">06</div>
+</section>
+
+
+<!-- 07 — When You're Away -->
+<section class="slide bg-warm grain watermark wm-bl" id="v7">
+  <div class="slide-inner" style="max-width:860px;">
+    <div class="label beat">When you&rsquo;re not there</div>
+    <p class="beat big-quote" style="font-size:clamp(1.8rem,3.2vw,3rem);margin-bottom:2.5rem;">Which, realistically, will be most of the year for most members — we rent it out.</p>
+    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+      <p class="beat prose">You get <span style="color:var(--terracotta);font-weight:600;">60%</span> of the net rental income. We get 40% to operate the campus, maintain the unit, and run the place at the standard you bought into.</p>
+      <p class="beat prose" style="color:var(--text-muted);">That&rsquo;s the financial structure. It&rsquo;s not the reason to do this. If you want yield, there are better instruments.</p>
+      <p class="beat prose" style="color:var(--text-muted);">The rental return is meant to do one thing: make it economically rational to own a place you only use part of the year. It&rsquo;s a structure that lets the math work without forcing the math to be the point.</p>
+    </div>
+  </div>
+  <div class="sn">07</div>
+</section>
+
+
+<!-- 08 — What You're Actually Buying -->
+<section class="slide bg-dark grain" id="v8">
+  <div class="slide-inner" style="max-width:1000px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;">
+    <div class="beat tc-line" style="margin:0 auto 2rem;"></div>
+    <p class="beat big-quote" style="font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;color:var(--bg);text-align:center;max-width:900px;line-height:1.12;">You&rsquo;re buying a decision<br>you no longer have to make.</p>
+    <div class="beat tc-line" style="margin:2.5rem auto 0;"></div>
+  </div>
+  <div class="sn">08</div>
+</section>
+
+
+<!-- 09 — The Morning -->
+<section class="slide swiss-split grain" id="v9">
+  <div class="swiss-split-img">
+    <img src="/assets/fh-exterior-detail.png" alt="NāM Space" style="object-position:center center;">
+    <div class="swiss-split-overlay"></div>
+  </div>
+  <div class="swiss-split-bar"></div>
+  <div class="swiss-split-content">
+    <div class="label">What it actually is</div>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      <p class="beat" style="font-family:'Epilogue',sans-serif;font-size:clamp(1rem,1.8vw,1.35rem);color:var(--text);line-height:1.7;">The morning swim. The walk to the café. The desk that&rsquo;s always yours. The neighbor you didn&rsquo;t know you needed. The slow Tuesday that reminds you why you started building anything in the first place.</p>
+      <p class="beat prose">The absence of a search you&rsquo;ve been running in the background for years.</p>
+      <p class="beat prose" style="color:var(--text-muted);">The coworking, the co-living, the wellness, the workspace — that&rsquo;s what gets people through the door. It&rsquo;s the language we share with the world. But what&rsquo;s actually being built is older and quieter than that.</p>
+      <p class="beat" style="font-family:'Epilogue',sans-serif;font-size:clamp(1rem,1.8vw,1.35rem);color:var(--text);font-style:italic;line-height:1.65;">We&rsquo;re giving people what they want so we can give them what they actually need.</p>
+    </div>
+  </div>
+  <div class="sn">09</div>
+</section>
+
+
+<!-- 10 — The Real Thing -->
+<section class="slide bg-green grain" id="v10">
+  <div class="slide-inner" style="max-width:860px;">
+    <div class="label beat">The real thing</div>
+    <p class="beat big-quote" style="font-size:clamp(2.2rem,4vw,3.8rem);margin-bottom:2.5rem;">N&#x101;M is where real magic happens.</p>
+    <p class="beat prose">The kind that only happens when aligned people come together to build something from the heart. Not because the building is beautiful. Not because the math works.</p>
+    <p class="beat prose" style="margin-top:1.5rem;">Because the people in the room actually want the same thing, and they&rsquo;re willing to do the work to make it real.</p>
+    <p class="beat" style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:rgba(244,242,232,0.35);margin-top:2.5rem;letter-spacing:0.06em;">That&rsquo;s the thing. Everything else is in service of it.</p>
+  </div>
+  <div class="sn">10</div>
+</section>
+
+
+<!-- 11 — What We Ask -->
+<section class="slide bg-cream grain watermark wm-tr" id="v11">
+  <div class="slide-inner" style="max-width:1100px;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+    <div>
+      <div class="label beat">What we ask</div>
+      <p class="beat big-quote" style="font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:2rem;">Your money, obviously.</p>
+      <div class="beat" style="display:flex;gap:1.5rem;margin-bottom:1.5rem;">
+        <div style="flex:1;border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center;background:#fff;">
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.5rem;">24 m²</div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">&euro;55,555</div>
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.62rem;color:var(--text-muted);margin-top:0.5rem;">one-time</div>
+        </div>
+        <div style="flex:1;border:1px solid var(--border);border-radius:10px;padding:1.5rem;text-align:center;background:#fff;">
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.5rem;">28 m²</div>
+          <div style="font-family:'Epilogue',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:600;color:var(--terracotta);line-height:1;letter-spacing:-0.03em;">&euro;66,666</div>
+          <div style="font-family:'Sometype Mono',monospace;font-size:0.62rem;color:var(--text-muted);margin-top:0.5rem;">one-time</div>
+        </div>
+      </div>
+      <p class="beat prose" style="font-size:0.9rem;">Documented. Registered. Paper-clean. 30-year leasehold under Thai law.</p>
+    </div>
+    <div style="padding-top:3.5rem;">
+      <p class="beat" style="font-family:'Epilogue',sans-serif;font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:400;color:var(--text);line-height:1.5;margin-bottom:2rem;">But also — and this is the part the brochure usually skips — your <em style="color:var(--terracotta);">presence</em>.</p>
+      <div style="display:flex;flex-direction:column;gap:1.1rem;">
+        <p class="beat prose">Not all the time. But enough to be real. The eight founding members are the village. You shape what it becomes. You don&rsquo;t just stay there. <strong style="color:var(--text);">You&rsquo;re written into the walls.</strong></p>
+        <p class="beat prose" style="color:var(--text-muted);">We will ask for your taste. Your honesty. Your willingness to push back when something is drifting.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">11</div>
+</section>
+
+
+<!-- 12 — What I'm Not Promising -->
+<section class="slide bg-dark grain" id="v12">
+  <div class="slide-inner" style="max-width:900px;">
+    <div class="label beat">What I am not promising</div>
+    <div style="display:flex;flex-direction:column;gap:2.5rem;margin-top:0.5rem;">
+      <div class="beat" style="border-bottom:1px solid rgba(244,242,232,0.08);padding-bottom:2.5rem;">
+        <h3 style="font-family:'Epilogue',sans-serif;font-size:1.2rem;font-weight:500;color:var(--bg);margin-bottom:0.75rem;">A guaranteed return</h3>
+        <p class="prose">The 60/40 split is real. The rental demand on the island is real. But I am not going to put a yield number on a brochure. That&rsquo;s not what this is.</p>
+      </div>
+      <div class="beat" style="border-bottom:1px solid rgba(244,242,232,0.08);padding-bottom:2.5rem;">
+        <h3 style="font-family:'Epilogue',sans-serif;font-size:1.2rem;font-weight:500;color:var(--bg);margin-bottom:0.75rem;">A short timeline</h3>
+        <p class="prose">Phase 1 designs are with the architect now. Construction will take what construction takes. If you need this to happen on a fixed schedule, this isn&rsquo;t the right project for you.</p>
+      </div>
+      <div class="beat">
+        <h3 style="font-family:'Epilogue',sans-serif;font-size:1.2rem;font-weight:500;color:var(--bg);margin-bottom:0.75rem;">A polished experience from day one</h3>
+        <p class="prose">N&#x101;M Space will be unfinished for the first year. That&rsquo;s not a flaw. <em style="color:rgba(244,242,232,0.7);">That&rsquo;s how places find their shape.</em> The founding members are the ones who get to live with that, and to mark it.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">12</div>
+</section>
+
+
+<!-- 13 — What I Don't Have Figured Out -->
+<section class="slide bg-warm grain watermark wm-bl" id="v13">
+  <div class="slide-inner" style="max-width:860px;">
+    <div class="label beat">Honest</div>
+    <p class="beat big-quote" style="font-size:clamp(2rem,3.5vw,3.2rem);margin-bottom:2.5rem;">I don&rsquo;t have an answer for everything.</p>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      <p class="beat prose">N&#x101;M Space is not a fully pre-planned project. It has to start somewhere, and it will evolve from there. I know where we&rsquo;re going. What I don&rsquo;t always know is how we get there.</p>
+      <p class="beat prose" style="color:var(--text-muted);">That part we figure out together.</p>
+      <p class="beat" style="font-family:'Epilogue',sans-serif;font-size:clamp(1.1rem,1.9vw,1.5rem);color:var(--text);line-height:1.6;font-style:italic;">If you need certainty on every detail before you commit, this isn&rsquo;t the right project for you. If you can hold uncertainty without it turning into anxiety — if you can trust a direction without needing the full map — then come.</p>
+    </div>
+  </div>
+  <div class="sn">13</div>
+</section>
+
+
+<!-- 14 — Who I'm Looking For -->
+<section class="slide bg-green grain" id="v14">
+  <div class="slide-inner" style="max-width:1100px;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+    <div>
+      <div class="label beat">Who I&rsquo;m looking for</div>
+      <p class="beat big-quote" style="font-size:clamp(2.2rem,3.8vw,3.5rem);">Eight people who have stopped performing.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;padding-top:1rem;">
+      <p class="beat prose" style="padding-bottom:1.5rem;border-bottom:1px solid rgba(244,242,232,0.1);">Who have done enough to know the doing isn&rsquo;t the thing.</p>
+      <p class="beat prose" style="padding-bottom:1.5rem;border-bottom:1px solid rgba(244,242,232,0.1);">Who recognize the feeling of arrival without performance and want to come home to it on a regular basis.</p>
+      <p class="beat prose" style="padding-bottom:1.5rem;border-bottom:1px solid rgba(244,242,232,0.1);">Who can read a leasehold contract without their eyes glazing over, but who would never make a decision this size on the contract alone.</p>
+      <p class="beat prose" style="padding-bottom:1.5rem;border-bottom:1px solid rgba(244,242,232,0.1);">Who want a place more than they want a return.</p>
+      <p class="beat prose">Who are not in a hurry.</p>
+    </div>
+  </div>
+  <div class="sn">14</div>
+</section>
+
+
+<!-- 15 — Kinship Journey -->
+<section class="slide bg-dark grain" id="v15">
+  <div class="slide-inner" style="max-width:900px;">
+    <div class="label beat">And for everyone else</div>
+    <p class="beat big-quote" style="font-size:clamp(2rem,3.8vw,3.6rem);margin-bottom:2.5rem;">I am not on a hero&rsquo;s journey.<br><em>I am on a kinship journey.</em></p>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      <p class="beat prose">If you can&rsquo;t join the Founder House &mdash; maybe the timing isn&rsquo;t right, maybe the money isn&rsquo;t there, maybe you&rsquo;re watching from a distance &mdash; I still want to hear from you.</p>
+      <p class="beat prose">What I am building is too important to come from one person. I need every support I can get. Ideas. Funding. Talent. Vision. If you feel drawn to this, reach out. There is a place for you in this too.</p>
+      <p class="beat" style="font-family:'Epilogue',sans-serif;font-size:clamp(1.1rem,1.9vw,1.5rem);color:rgba(244,242,232,0.5);line-height:1.65;font-style:italic;">I am happy to lead and to guide. But this should be something we all do together.</p>
+    </div>
+  </div>
+  <div class="sn">15</div>
+</section>
+
+
+<!-- 16 — The Invitation -->
+<section class="slide bg-cream grain" id="v16">
+  <div class="slide-inner" style="max-width:760px;display:flex;flex-direction:column;justify-content:center;min-height:65vh;">
+    <div class="beat tc-line"></div>
+    <p class="beat big-quote" style="font-size:clamp(2.4rem,4.5vw,4rem);margin-bottom:2.5rem;">Write to me.<br><span style="color:var(--terracotta);">Not your assistant.</span><br>You. Tell me why.</p>
+    <p class="beat prose" style="margin-bottom:2.5rem;">The eight will be chosen for fit, not speed. There is no countdown timer on this page because there isn&rsquo;t one in real life. The right people will find their way here.</p>
+    <div class="beat" style="display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="mailto:alex@nam.space" style="font-family:'Sometype Mono',monospace;font-size:1.1rem;color:var(--terracotta);text-decoration:none;letter-spacing:0.04em;font-weight:500;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">alex@nam.space</a>
+      <a href="https://wa.me/66639407272" target="_blank" rel="noopener" style="font-family:'Sometype Mono',monospace;font-size:0.82rem;color:var(--text-muted);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-muted)'">WhatsApp &rarr;</a>
+    </div>
+    <div class="beat" style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);">
+      <p style="font-family:'Sometype Mono',monospace;font-size:0.75rem;color:var(--text-muted);line-height:1.7;letter-spacing:0.03em;"><em>Alex Duffner &middot; Koh Phangan, Thailand</em><br>April 2026 &middot; For discussion purposes only &middot; Subject to legal review</p>
+    </div>
+  </div>
+  <div class="sn">16</div>
+</section>
+
+
+</div><!-- /deck -->
+</div><!-- /deck-wrapper -->
+
+<!-- Nav bar -->
+<nav class="nav-bar">
+  <div class="currency-picker" id="currencyPicker" style="position:absolute;left:24px;top:0;bottom:0;display:flex;align-items:center;z-index:10;">
+    <a href="./index.html" style="font-family:'Sometype Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;color:rgba(244,242,232,0.45);text-decoration:none;transition:color 0.2s;white-space:nowrap;" onmouseover="this.style.color='rgba(244,242,232,0.9)'" onmouseout="this.style.color='rgba(244,242,232,0.45)'">← Full deck</a>
+  </div>
+  <div class="nav-center">
+    <button class="nav-arrow" id="prevBtn" onclick="prevSlide()" aria-label="Previous">&#8592;</button>
+    <button class="slide-counter" id="slideCounter" onclick="toggleSlideNav()" aria-label="Go to slide">
+      <span class="counter-num" id="counterNum">01 / 16</span>
+      <span class="counter-name" id="counterName">An Invitation to the Eight</span>
+    </button>
+    <button class="nav-arrow" id="nextBtn" onclick="nextSlide()" aria-label="Next">&#8594;</button>
+  </div>
+  <button class="share-btn" onclick="doShare()" aria-label="Share">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+</nav>
+
+<div class="slide-nav-dropdown" id="slideNav"></div>
+<div class="slide-nav-backdrop" id="slideNavBackdrop"></div>
+
+<script>
+(function() {
+  var deck    = document.getElementById('deck');
+  var progress = document.getElementById('progress');
+  var counter  = document.getElementById('slideCounter');
+  var counterNum  = document.getElementById('counterNum');
+  var counterName = document.getElementById('counterName');
+  var slides  = deck.querySelectorAll('.slide');
+  var total   = slides.length;
+  var current = 0;
+
+  function goTo(n) {
+    if (n < 0 || n >= total) return;
+    slides[current].classList.remove('active');
+    current = n;
+    deck.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+    slides[current].classList.add('active');
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    document.getElementById('prevBtn').disabled = (current === 0);
+    document.getElementById('nextBtn').disabled = (current === total - 1);
+    var name = slideNames[current] || '';
+    counterNum.textContent  = String(current + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+    counterName.textContent = name;
+    if (!goTo._skipHash) history.replaceState(null, '', '#' + (current + 1));
+  }
+
+  window.nextSlide = function() { goTo(current + 1); };
+  window.prevSlide = function() { goTo(current - 1); };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'Home')  { e.preventDefault(); goTo(0); }
+    if (e.key === 'End')   { e.preventDefault(); goTo(total - 1); }
+  });
+
+  var touchStartX = 0;
+  document.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+
+  window.goTo = goTo;
+
+  /* Slide navigator */
+  var slideNav  = document.getElementById('slideNav');
+  var backdrop  = document.getElementById('slideNavBackdrop');
+  var navOpen   = false;
+
+  var slideData = [
+    { section: 'The Invitation', items: [
+      { idx: 0,  title: 'An Invitation to the Eight' },
+      { idx: 1,  title: 'The Person' },
+      { idx: 2,  title: 'Somewhere to Land' },
+      { idx: 3,  title: 'The Land' },
+      { idx: 4,  title: 'Eight is the Number' },
+      { idx: 5,  title: 'Your Unit' },
+      { idx: 6,  title: 'When You\'re Away' },
+      { idx: 7,  title: 'What You\'re Actually Buying' },
+      { idx: 8,  title: 'The Morning' },
+      { idx: 9,  title: 'The Real Thing' },
+      { idx: 10, title: 'What We Ask' },
+      { idx: 11, title: 'What I\'m Not Promising' },
+      { idx: 12, title: 'What I Don\'t Have Figured Out' },
+      { idx: 13, title: 'Who I\'m Looking For' },
+      { idx: 14, title: 'Kinship Journey' },
+      { idx: 15, title: 'Write to Me' }
+    ]}
+  ];
+
+  var slideNames = [];
+  slideData.forEach(function(section) {
+    section.items.forEach(function(item) { slideNames[item.idx] = item.title; });
+  });
+
+  var navHtml = '';
+  slideData.forEach(function(section, si) {
+    if (si > 0) navHtml += '<div style="height:1px;background:rgba(42,58,43,0.06);margin:6px 24px;"></div>';
+    navHtml += '<div class="slide-nav-section">' + section.section + '</div>';
+    section.items.forEach(function(item) {
+      navHtml += '<div class="slide-nav-item" data-idx="' + item.idx + '">'
+        + '<span class="slide-nav-item-num">' + String(item.idx + 1).padStart(2, '0') + '</span>'
+        + '<span>' + item.title + '</span></div>';
+    });
+  });
+  slideNav.innerHTML = navHtml;
+
+  slideNav.querySelectorAll('.slide-nav-item').forEach(function(el) {
+    el.addEventListener('click', function() { goTo(parseInt(el.getAttribute('data-idx'))); closeSlideNav(); });
+  });
+
+  function openSlideNav() {
+    slideNav.querySelectorAll('.slide-nav-item').forEach(function(el) {
+      el.classList.toggle('current', parseInt(el.getAttribute('data-idx')) === current);
+    });
+    slideNav.classList.add('open'); backdrop.classList.add('open'); counter.classList.add('nav-active');
+    var cur = slideNav.querySelector('.slide-nav-item.current');
+    if (cur) setTimeout(function() { cur.scrollIntoView({ block: 'center', behavior: 'instant' }); }, 10);
+    requestAnimationFrame(function() { slideNav.classList.add('visible'); backdrop.classList.add('visible'); });
+    navOpen = true;
+  }
+
+  function closeSlideNav() {
+    slideNav.classList.remove('visible'); backdrop.classList.remove('visible'); counter.classList.remove('nav-active');
+    setTimeout(function() { slideNav.classList.remove('open'); backdrop.classList.remove('open'); }, 250);
+    navOpen = false;
+  }
+
+  window.toggleSlideNav = function() { if (navOpen) closeSlideNav(); else openSlideNav(); };
+  backdrop.addEventListener('click', closeSlideNav);
+  document.addEventListener('click', function(e) {
+    if (navOpen && !slideNav.contains(e.target) && !counter.contains(e.target) && e.target !== backdrop) closeSlideNav();
+  });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && navOpen) { e.preventDefault(); closeSlideNav(); } });
+
+  /* Share */
+  window.doShare = function() {
+    var url = window.location.href;
+    if (navigator.share) { navigator.share({ title: document.title, url: url }).catch(function(){}); return; }
+    var done = function() {
+      var t = document.createElement('div');
+      t.textContent = 'Link copied \u2713';
+      t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#2a3a2b;color:#f4f2e8;padding:10px 20px;border-radius:6px;font-size:0.85rem;z-index:9999;opacity:0;transition:opacity 0.3s';
+      document.body.appendChild(t);
+      requestAnimationFrame(function(){ t.style.opacity='1'; });
+      setTimeout(function(){ t.style.opacity='0'; setTimeout(function(){ t.remove(); }, 300); }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done).catch(function() { var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;left:-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); });
+    } else { var ta = document.createElement('textarea'); ta.value = url; ta.style.cssText = 'position:fixed;left:-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
+  };
+
+  /* Environment badge */
+  (function() {
+    var host = window.location.hostname;
+    var badge = document.getElementById('envBadge');
+    var dot   = document.getElementById('envDot');
+    var label = document.getElementById('envLabel');
+    if (!badge) return;
+    var env = null;
+    if (host === 'localhost' || host === '127.0.0.1') env = 'local';
+    else if (/^\d+\.\d+\.\d+\.\d+$/.test(host)) env = 'staging';
+    if (!env) return;
+    dot.classList.add('env-dot-' + env);
+    label.textContent = env === 'local' ? 'Local' : 'Staging';
+    badge.style.display = 'flex';
+  })();
+
+  /* Boot */
+  var startSlide = parseInt(window.location.hash.replace('#', ''), 10);
+  goTo((startSlide >= 1 && startSlide <= total) ? startSlide - 1 : 0);
+
+  window.addEventListener('hashchange', function() {
+    var h = parseInt(window.location.hash.replace('#', ''), 10);
+    if (h >= 1 && h <= total && h - 1 !== current) { goTo._skipHash = true; goTo(h - 1); goTo._skipHash = false; }
+  });
+})();
+</script>
+</body>
+</html>
