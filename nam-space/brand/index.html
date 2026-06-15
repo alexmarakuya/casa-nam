@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NāM — Living Brand Guide</title>
+<meta name="description" content="The living brand guide for NāM — voice, logo, color, typography and photography for the whole NāMSPACE ecosystem. Understand the brand and download approved assets.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nam.space/brand/">
+<meta property="og:title" content="NāM — Living Brand Guide">
+<meta property="og:description" content="Understand the NāM brand and download approved assets — logos, color, typography and photography.">
+<meta property="og:image" content="https://nam.space/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NāM — Living Brand Guide">
+<meta name="twitter:description" content="Understand the NāM brand and download approved assets.">
+<meta name="twitter:image" content="https://nam.space/assets/og-image.jpg">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Sometype+Mono:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<!-- Living design tokens — synced from the NāM design system. Refresh with `npm run sync:tokens`. -->
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-mono);
+    color: var(--color-text-primary);
+    background: var(--color-bg-base);
+    -webkit-font-smoothing: antialiased;
+    line-height: var(--leading-normal);
+  }
+  ::selection { background: var(--color-selection); }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  ul, li { list-style: none; }
+  button { font-family: inherit; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: var(--radius-sm); }
+
+  .skip-link { position: absolute; top: -100%; left: var(--space-4); background: var(--color-accent); color: var(--nam-cream); padding: var(--space-3) var(--space-6); border-radius: var(--radius-md); font-size: var(--text-sm); text-decoration: none; z-index: 10000; }
+  .skip-link:focus { top: var(--space-4); }
+
+  .wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding-left: var(--space-16); padding-right: var(--space-16); }
+
+  /* Type helpers */
+  .display { font-family: var(--font-display); font-weight: var(--weight-normal); letter-spacing: var(--tracking-tight); line-height: var(--leading-tight); }
+  .kicker { font-family: var(--font-mono); font-weight: var(--weight-semibold); font-size: var(--text-xs); letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--color-accent); }
+  .lead { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); }
+  h2.sec-title { font-family: var(--font-display); font-weight: var(--weight-normal); font-size: var(--text-3xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); color: var(--color-text-heading); margin-top: var(--space-3); }
+  h3 { font-family: var(--font-display); font-weight: var(--weight-normal); }
+
+  section { padding: var(--space-24) 0; scroll-margin-top: 124px; }
+  section.tight { padding: var(--space-20) 0; }
+  .sec-head { max-width: 720px; margin-bottom: var(--space-16); }
+  .sec-head .lead { margin-top: var(--space-5); }
+
+  /* ============ TOP BAR ============ */
+  .topbar { position: sticky; top: 0; z-index: 100; background: var(--nam-deep-green); height: 60px; display: flex; align-items: center; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .topbar-left { display: flex; align-items: center; gap: var(--space-3); }
+  .topbar .logo { height: 22px; width: auto; color: var(--nam-cream); }
+  .topbar-tag { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--nam-sapling); border-left: 1px solid rgba(255,255,255,0.2); padding-left: var(--space-3); }
+  .topbar a.back { font-size: var(--text-sm); color: var(--nam-cream); text-decoration: none; padding: var(--space-2) var(--space-4); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-full); transition: border-color var(--duration-base) var(--ease-water); }
+  .topbar a.back:hover { border-color: var(--nam-cream); }
+
+  /* ============ HERO ============ */
+  .hero { background: var(--nam-deep-green); color: var(--nam-cream); padding: var(--space-24) 0; position: relative; overflow: hidden; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: url('/assets/river-texture.svg') center/cover no-repeat; opacity: 0.06; pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 1; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .hero .logo { height: 64px; width: auto; color: var(--nam-cream); margin-bottom: var(--space-8); }
+  .hero .kicker { color: var(--nam-sunwashed); }
+  .hero h1 { font-family: var(--font-display); font-weight: var(--weight-normal); font-size: var(--text-4xl); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); margin: var(--space-4) 0 var(--space-5); }
+  .hero p { max-width: 560px; font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--nam-sapling); }
+  .hero .meaning { margin-top: var(--space-8); font-size: var(--text-sm); color: var(--nam-oat); border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius-full); padding: var(--space-2) var(--space-5); }
+  .hero .meaning b { color: var(--nam-cream); font-weight: var(--weight-semibold); }
+
+  /* ============ SECTION NAV ============ */
+  .secnav { position: sticky; top: 60px; z-index: 90; background: var(--color-bg-surface); border-bottom: 1px solid var(--color-border); }
+  .secnav .wrap { display: flex; gap: var(--space-1); overflow-x: auto; padding-top: var(--space-3); padding-bottom: var(--space-3); scrollbar-width: none; }
+  .secnav .wrap::-webkit-scrollbar { display: none; }
+  .secnav a { font-size: var(--text-sm); white-space: nowrap; text-decoration: none; color: var(--color-text-secondary); padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); transition: background var(--duration-base) var(--ease-water), color var(--duration-base) var(--ease-water); }
+  .secnav a:hover { color: var(--color-text-heading); }
+  .secnav a.active { background: var(--color-accent); color: var(--nam-cream); }
+
+  /* ============ STORY ============ */
+  .story-lead { font-family: var(--font-display); font-weight: var(--weight-300, 300); font-size: var(--text-xl); line-height: var(--leading-snug); color: var(--color-text-heading); max-width: 820px; }
+  .story-lead + .story-lead { margin-top: var(--space-6); }
+  .pull { margin: var(--space-16) 0; padding: var(--space-12) var(--space-12); background: var(--nam-deep-green); color: var(--nam-cream); border-radius: var(--radius-2xl); text-align: center; }
+  .pull p { font-family: var(--font-display); font-weight: var(--weight-normal); font-size: var(--text-2xl); line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); }
+  .pull p span { color: var(--nam-sunwashed); }
+  .pull .sub { font-family: var(--font-mono); font-weight: var(--weight-normal); font-size: var(--text-base); color: var(--nam-sapling); margin-top: var(--space-5); max-width: 560px; margin-left: auto; margin-right: auto; }
+
+  .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); margin-top: var(--space-4); }
+  .mv-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-10); }
+  .mv-card .kicker { color: var(--color-accent); }
+  .mv-card p { margin-top: var(--space-4); font-size: var(--text-base); line-height: var(--leading-relaxed); color: var(--color-text-secondary); }
+
+  /* ============ VALUES ============ */
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+  .value { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-8); }
+  .value .num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wide); }
+  .value h3 { font-size: var(--text-xl); color: var(--color-text-heading); margin: var(--space-3) 0 var(--space-3); }
+  .value p { font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-text-secondary); }
+
+  /* ============ VOICE ============ */
+  .voice-headline { font-family: var(--font-display); font-weight: var(--weight-normal); font-size: var(--text-2xl); line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); color: var(--color-text-heading); max-width: 760px; }
+  .voice-core { margin-top: var(--space-6); max-width: 760px; }
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); margin-top: var(--space-12); }
+  .pillar { border-top: 2px solid var(--color-accent); padding-top: var(--space-4); }
+  .pillar h4 { font-family: var(--font-mono); font-weight: var(--weight-semibold); font-size: var(--text-base); color: var(--color-text-heading); }
+  .pillar p { font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin-top: var(--space-2); }
+
+  .words { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: var(--space-16); }
+  .words-panel { border-radius: var(--radius-xl); padding: var(--space-8); border: 1px solid var(--color-border); }
+  .words-panel.love { background: var(--nam-sage); border-color: var(--nam-sapling); }
+  .words-panel.avoid { background: var(--color-bg-surface); }
+  .words-panel h4 { display: flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-weight: var(--weight-semibold); font-size: var(--text-base); color: var(--color-text-heading); margin-bottom: var(--space-5); }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .chip { font-size: var(--text-sm); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); background: var(--nam-cream); color: var(--nam-deep-green); border: 1px solid rgba(0,0,0,0.06); }
+  .words-panel.avoid .chip { background: transparent; color: var(--color-text-muted); border: 1px dashed var(--color-border); text-decoration: line-through; }
+
+  /* ============ LOGO ============ */
+  #logo { background: var(--nam-deep-green); color: var(--nam-cream); }
+  #logo .sec-title, #logo h3 { color: var(--nam-cream); }
+  #logo .lead { color: var(--nam-sapling); }
+  .logo-stage { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-8); align-items: stretch; }
+  .logo-preview { border-radius: var(--radius-2xl); display: flex; align-items: center; justify-content: center; min-height: 280px; padding: var(--space-16); transition: background var(--duration-base) var(--ease-water); border: 1px solid rgba(255,255,255,0.12); }
+  .logo-preview svg { width: min(320px, 70%); height: auto; transition: color var(--duration-base) var(--ease-water); }
+  .logo-controls { display: flex; flex-direction: column; gap: var(--space-6); justify-content: center; }
+  .ctl-label { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--nam-oat); margin-bottom: var(--space-3); }
+  .swatch-row { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+  .fill-btn, .bg-btn { width: 36px; height: 36px; border-radius: var(--radius-full); border: 2px solid rgba(255,255,255,0.25); padding: 0; }
+  .fill-btn[aria-pressed="true"], .bg-btn[aria-pressed="true"] { border-color: var(--nam-cream); box-shadow: 0 0 0 2px var(--nam-deep-green), 0 0 0 4px var(--nam-cream); }
+  .btn { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--text-sm); font-weight: var(--weight-medium); padding: var(--space-3) var(--space-5); border-radius: var(--radius-full); border: 1px solid transparent; text-decoration: none; transition: filter var(--duration-base) var(--ease-water), border-color var(--duration-base) var(--ease-water), background var(--duration-base) var(--ease-water); }
+  .btn svg { width: 16px; height: 16px; }
+  .btn-accent { background: var(--color-accent); color: var(--nam-cream); }
+  .btn-accent:hover { filter: brightness(1.08); }
+  .btn-ghost-light { border-color: rgba(255,255,255,0.3); color: var(--nam-cream); }
+  .btn-ghost-light:hover { border-color: var(--nam-cream); }
+  .btn-ghost { border-color: var(--color-border); color: var(--color-text-primary); background: var(--color-bg-card); }
+  .btn-ghost:hover { border-color: var(--color-accent); }
+
+  .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: var(--space-12); }
+  .usage { border-radius: var(--radius-lg); padding: var(--space-6); border: 1px solid rgba(255,255,255,0.14); }
+  .usage h4 { display: flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; margin-bottom: var(--space-4); }
+  .usage.do h4 { color: var(--nam-sage); }
+  .usage.dont h4 { color: var(--nam-sunwashed); }
+  .usage li { font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--nam-oat); padding-left: var(--space-5); position: relative; margin-bottom: var(--space-2); }
+  .usage li::before { content: "—"; position: absolute; left: 0; color: rgba(255,255,255,0.4); }
+
+  .marks-row { display: flex; gap: var(--space-6); flex-wrap: wrap; margin-top: var(--space-12); }
+  .mark { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: var(--space-6); display: flex; flex-direction: column; align-items: center; gap: var(--space-3); width: 160px; }
+  .mark img { height: 48px; width: auto; }
+  .mark .nm { font-size: var(--text-xs); color: var(--nam-oat); }
+
+  /* ============ COLOR ============ */
+  .live-note { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-4); }
+  .live-dot { width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--nam-status-active); flex-shrink: 0; }
+  .group-label { font-family: var(--font-mono); font-weight: var(--weight-semibold); font-size: var(--text-sm); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-text-secondary); margin: var(--space-12) 0 var(--space-5); }
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
+  .swatch { text-align: left; background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: transform var(--duration-fast) var(--ease-water); }
+  .swatch:hover { transform: translateY(-2px); }
+  .swatch .chip-color { height: 84px; width: 100%; position: relative; }
+  .swatch .copy-hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: var(--space-1); font-size: var(--text-xs); opacity: 0; transition: opacity var(--duration-base) var(--ease-water); }
+  .swatch .copy-hint svg { width: 14px; height: 14px; }
+  .swatch:hover .copy-hint, .swatch:focus-visible .copy-hint { opacity: 1; }
+  .swatch .meta { padding: var(--space-3) var(--space-4); }
+  .swatch .nm { font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-text-primary); }
+  .swatch .val { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: 2px; }
+
+  .theme-demo { margin-top: var(--space-16); border-radius: var(--radius-2xl); border: 1px solid var(--color-border); overflow: hidden; background: var(--color-bg-base); color: var(--color-text-primary); transition: background var(--duration-base) var(--ease-water), color var(--duration-base) var(--ease-water); }
+  .theme-demo-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-5) var(--space-8); border-bottom: 1px solid var(--color-border); flex-wrap: wrap; }
+  .theme-demo-bar .dt-title { font-family: var(--font-mono); font-weight: var(--weight-semibold); font-size: var(--text-sm); }
+  .theme-toggle { display: inline-flex; background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-full); padding: var(--space-1); gap: var(--space-1); }
+  .theme-toggle button { font-size: var(--text-xs); padding: var(--space-2) var(--space-4); border: none; border-radius: var(--radius-full); background: transparent; color: var(--color-text-secondary); }
+  .theme-toggle button[aria-pressed="true"] { background: var(--color-accent); color: var(--nam-white); }
+  .theme-demo-body { padding: var(--space-8); display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--space-8); }
+  .sem-swatches { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+  .sem { display: flex; align-items: center; gap: var(--space-3); background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-2) var(--space-3); }
+  .sem .sw { width: 28px; height: 28px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); flex-shrink: 0; }
+  .sem .nm { font-size: var(--text-xs); color: var(--color-text-secondary); line-height: 1.3; }
+  .sem .nm b { display: block; color: var(--color-text-primary); font-weight: var(--weight-medium); }
+  .sample-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); }
+  .sample-card h4 { font-family: var(--font-display); color: var(--color-text-heading); font-size: var(--text-xl); }
+  .sample-card p { font-size: var(--text-sm); color: var(--color-text-secondary); margin: var(--space-3) 0 var(--space-5); line-height: var(--leading-relaxed); }
+  .sample-card .sbtn { display: inline-block; background: var(--color-accent); color: var(--nam-white); font-size: var(--text-sm); padding: var(--space-2) var(--space-5); border-radius: var(--radius-full); }
+
+  /* ============ TYPOGRAPHY ============ */
+  .fonts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+  .font-card { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-8); }
+  .font-card .big { font-size: var(--text-4xl); line-height: 1; color: var(--color-text-heading); }
+  .font-card .role { margin-top: var(--space-5); }
+  .font-card .role b { font-size: var(--text-base); color: var(--color-text-primary); }
+  .font-card .role span { display: block; font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-1); }
+  .font-card.display .big { font-family: var(--font-display); }
+  .font-card.mono .big { font-family: var(--font-mono); }
+  .font-card.editorial .big { font-family: var(--font-editorial); font-style: italic; }
+
+  .scale { margin-top: var(--space-16); border-top: 1px solid var(--color-border); }
+  .scale-row { display: flex; align-items: baseline; gap: var(--space-6); padding: var(--space-5) 0; border-bottom: 1px solid var(--color-border); }
+  .scale-row .sample { font-family: var(--font-display); color: var(--color-text-heading); line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }
+  .scale-row .tag { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); white-space: nowrap; }
+
+  /* ============ PHOTOGRAPHY ============ */
+  .photo-notes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-bottom: var(--space-12); }
+  .photo-note { border-radius: var(--radius-lg); padding: var(--space-6); border: 1px solid var(--color-border); }
+  .photo-note h4 { font-family: var(--font-mono); font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; margin-bottom: var(--space-3); }
+  .photo-note.shoot { background: var(--nam-sage); }
+  .photo-note.shoot h4 { color: var(--nam-deep-green); }
+  .photo-note.avoid h4 { color: var(--color-accent); }
+  .photo-note li { font-size: var(--text-sm); line-height: var(--leading-relaxed); color: var(--color-text-secondary); padding-left: var(--space-5); position: relative; margin-bottom: var(--space-2); }
+  .photo-note li::before { content: "—"; position: absolute; left: 0; color: var(--color-text-muted); }
+  .photo-note.shoot li { color: var(--nam-foliage); }
+
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+  .gtile { position: relative; border: none; padding: 0; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3; background: var(--color-bg-elevated); }
+  .gtile img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-slow) var(--ease-water); }
+  .gtile:hover img { transform: scale(1.05); }
+  .gtile .glabel { position: absolute; left: 0; right: 0; bottom: 0; padding: var(--space-6) var(--space-3) var(--space-3); font-size: var(--text-xs); color: var(--nam-cream); text-align: left; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity var(--duration-base) var(--ease-water); }
+  .gtile:hover .glabel, .gtile:focus-visible .glabel { opacity: 1; }
+  .gdl { position: absolute; top: var(--space-2); right: var(--space-2); width: 32px; height: 32px; border-radius: var(--radius-full); background: rgba(0,0,0,0.55); color: var(--nam-cream); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--duration-base) var(--ease-water); }
+  .gdl svg { width: 16px; height: 16px; }
+  .gtile:hover .gdl, .gtile:focus-within .gdl { opacity: 1; }
+  .gdl:hover { background: var(--color-accent); }
+
+  /* ============ DOWNLOADS ============ */
+  #downloads { background: var(--nam-deep-green); color: var(--nam-cream); }
+  #downloads .sec-title { color: var(--nam-cream); }
+  #downloads .lead { color: var(--nam-sapling); }
+  .dl-group-label { font-family: var(--font-mono); font-weight: var(--weight-semibold); font-size: var(--text-sm); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--nam-oat); margin: var(--space-12) 0 var(--space-5); }
+  .dl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  .dl-card { display: flex; align-items: center; gap: var(--space-4); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: var(--space-5); text-decoration: none; color: var(--nam-cream); transition: background var(--duration-base) var(--ease-water), border-color var(--duration-base) var(--ease-water); }
+  .dl-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+  .dl-ic { width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dl-ic svg { width: 20px; height: 20px; color: var(--nam-sunwashed); }
+  .dl-card .nm { font-size: var(--text-sm); font-weight: var(--weight-medium); }
+  .dl-card .fmt { font-size: var(--text-xs); color: var(--nam-sapling); margin-top: 2px; }
+
+  /* ============ FOOTER ============ */
+  footer { background: var(--nam-deep-green); color: var(--nam-cream); border-top: 1px solid rgba(255,255,255,0.12); padding: var(--space-16) 0; }
+  footer .wrap { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-8); flex-wrap: wrap; }
+  footer .logo { height: 26px; color: var(--nam-cream); margin-bottom: var(--space-4); }
+  footer .f-tag { font-size: var(--text-sm); color: var(--nam-sapling); max-width: 320px; line-height: var(--leading-relaxed); }
+  footer .f-links { display: flex; flex-direction: column; gap: var(--space-2); }
+  footer .f-links a { font-size: var(--text-sm); color: var(--nam-oat); text-decoration: none; }
+  footer .f-links a:hover { color: var(--nam-cream); text-decoration: underline; }
+  footer .synced { font-size: var(--text-xs); color: var(--nam-pebble); margin-top: var(--space-8); width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-5); display: flex; align-items: center; gap: var(--space-2); }
+
+  /* ============ LIGHTBOX ============ */
+  .lightbox { position: fixed; inset: 0; background: rgba(11,15,11,0.92); z-index: 1000; display: none; align-items: center; justify-content: center; padding: var(--space-12); }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 82vh; border-radius: var(--radius-lg); }
+  .lb-close, .lb-prev, .lb-next { position: absolute; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: var(--nam-cream); width: 48px; height: 48px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; }
+  .lb-close { top: var(--space-6); right: var(--space-6); }
+  .lb-prev { left: var(--space-6); top: 50%; transform: translateY(-50%); }
+  .lb-next { right: var(--space-6); top: 50%; transform: translateY(-50%); }
+  .lb-close svg, .lb-prev svg, .lb-next svg { width: 22px; height: 22px; }
+  .lb-cap { position: absolute; bottom: var(--space-8); left: 0; right: 0; text-align: center; color: var(--nam-oat); font-size: var(--text-sm); }
+
+  /* ============ TOAST ============ */
+  .toast { position: fixed; bottom: var(--space-8); left: 50%; transform: translateX(-50%) translateY(20px); background: var(--nam-slate); color: var(--nam-cream); padding: var(--space-3) var(--space-6); border-radius: var(--radius-full); font-size: var(--text-sm); display: flex; align-items: center; gap: var(--space-2); opacity: 0; pointer-events: none; transition: opacity var(--duration-base) var(--ease-water), transform var(--duration-base) var(--ease-water); z-index: 1100; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast svg { width: 16px; height: 16px; color: var(--nam-sage); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .wrap { padding-left: var(--space-10); padding-right: var(--space-10); }
+    .values-grid, .pillars, .fonts-grid, .dl-grid { grid-template-columns: repeat(2, 1fr); }
+    .swatches, .gallery { grid-template-columns: repeat(3, 1fr); }
+    .logo-stage, .theme-demo-body { grid-template-columns: 1fr; }
+    .hero h1 { font-size: var(--text-3xl); }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding-left: var(--space-6); padding-right: var(--space-6); }
+    section { padding: var(--space-16) 0; scroll-margin-top: 116px; }
+    .mv-grid, .values-grid, .pillars, .words, .usage-grid, .photo-notes, .fonts-grid, .dl-grid { grid-template-columns: 1fr; }
+    .swatches, .gallery, .sem-swatches { grid-template-columns: repeat(2, 1fr); }
+    .hero .logo { height: 48px; }
+    .hero h1 { font-size: var(--text-2xl); }
+    .pull p { font-size: var(--text-xl); }
+    h2.sec-title { font-size: var(--text-2xl); }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#story">Skip to content</a>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <a href="/" aria-label="NāM home"><svg class="logo" viewBox="0 0 74.5549 28.0001" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NāM"><path d="M55.7424 27.5041V0.688065H60.528L65.1074 16.1176L69.6455 0.688065H74.5549V27.5041H71.0069V5.96876L66.2213 22.1409H63.8697L59.0841 5.96876V27.5041H55.7424Z" fill="currentColor"/><path d="M35.1528 28.0001C32.7875 28.0001 30.9447 27.45 29.6246 26.3499C28.3319 25.2497 27.6855 23.7233 27.6855 21.7705C27.6855 19.9003 28.3044 18.4701 29.542 17.4799C30.7797 16.4898 32.6087 15.9948 35.029 15.9948H41.9599V15.3759C41.9599 13.7257 41.5749 12.5568 40.8048 11.8692C40.0347 11.1816 38.7283 10.8378 36.8855 10.8378C34.3827 10.8378 32.0861 11.4154 29.9959 12.5705L28.8407 9.47639C31.2885 8.18372 34.0664 7.53738 37.1743 7.53738C40.1172 7.53738 42.2625 8.14246 43.6102 9.35262C44.9853 10.5353 45.6729 12.4055 45.6729 14.9634V27.505H42.9088L42.4963 25.6073C41.3961 26.4049 40.241 27.01 39.0308 27.4225C37.8206 27.8076 36.528 28.0001 35.1528 28.0001ZM35.8129 24.6584C38.1232 24.6584 40.1722 24.0533 41.9599 22.8432V19.0477H35.1528C33.8876 19.0477 32.9525 19.2677 32.3474 19.7077C31.7698 20.1478 31.4811 20.8079 31.4811 21.688C31.4811 22.6781 31.8386 23.4207 32.5537 23.9158C33.2688 24.4109 34.3552 24.6584 35.8129 24.6584Z" fill="currentColor"/><path d="M0 27.5039V0.687879H4.5381L14.5632 20.4905V0.687879H18.0699V27.5039H14.3156L3.50672 6.1336V27.5039H0Z" fill="currentColor"/><path d="M43.8274 2.67029e-05V2.75039H30.0756V2.67029e-05H43.8274Z" fill="currentColor"/></svg></a>
+      <span class="topbar-tag">Brand Guide</span>
+    </div>
+    <a class="back" href="/">nam.space →</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-title" style="scroll-margin-top:0">
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 74.5549 28.0001" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NāM"><path d="M55.7424 27.5041V0.688065H60.528L65.1074 16.1176L69.6455 0.688065H74.5549V27.5041H71.0069V5.96876L66.2213 22.1409H63.8697L59.0841 5.96876V27.5041H55.7424Z" fill="currentColor"/><path d="M35.1528 28.0001C32.7875 28.0001 30.9447 27.45 29.6246 26.3499C28.3319 25.2497 27.6855 23.7233 27.6855 21.7705C27.6855 19.9003 28.3044 18.4701 29.542 17.4799C30.7797 16.4898 32.6087 15.9948 35.029 15.9948H41.9599V15.3759C41.9599 13.7257 41.5749 12.5568 40.8048 11.8692C40.0347 11.1816 38.7283 10.8378 36.8855 10.8378C34.3827 10.8378 32.0861 11.4154 29.9959 12.5705L28.8407 9.47639C31.2885 8.18372 34.0664 7.53738 37.1743 7.53738C40.1172 7.53738 42.2625 8.14246 43.6102 9.35262C44.9853 10.5353 45.6729 12.4055 45.6729 14.9634V27.505H42.9088L42.4963 25.6073C41.3961 26.4049 40.241 27.01 39.0308 27.4225C37.8206 27.8076 36.528 28.0001 35.1528 28.0001ZM35.8129 24.6584C38.1232 24.6584 40.1722 24.0533 41.9599 22.8432V19.0477H35.1528C33.8876 19.0477 32.9525 19.2677 32.3474 19.7077C31.7698 20.1478 31.4811 20.8079 31.4811 21.688C31.4811 22.6781 31.8386 23.4207 32.5537 23.9158C33.2688 24.4109 34.3552 24.6584 35.8129 24.6584Z" fill="currentColor"/><path d="M0 27.5039V0.687879H4.5381L14.5632 20.4905V0.687879H18.0699V27.5039H14.3156L3.50672 6.1336V27.5039H0Z" fill="currentColor"/><path d="M43.8274 2.67029e-05V2.75039H30.0756V2.67029e-05H43.8274Z" fill="currentColor"/></svg>
+    <p class="kicker">Living Brand Guide</p>
+    <h1 id="hero-title">One brand, flowing through<br>the whole NāM ecosystem.</h1>
+    <p>How NāM looks, sounds, and shows up — and where to download the assets to use it well. A living reference, synced to the design system.</p>
+    <span class="meaning"><b>NāM</b> &nbsp;·&nbsp; น้ำ &nbsp;·&nbsp; the Thai word for <b>water</b></span>
+  </div>
+</section>
+
+<!-- ============ SECTION NAV ============ -->
+<nav class="secnav" aria-label="Brand guide sections">
+  <div class="wrap">
+    <a href="#story">Story</a>
+    <a href="#voice">Voice</a>
+    <a href="#logo">Logo</a>
+    <a href="#color">Color</a>
+    <a href="#type">Type</a>
+    <a href="#photography">Photography</a>
+    <a href="#downloads">Downloads</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ STORY ============ -->
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">The Story</p>
+      <h2 class="sec-title">What NāM is</h2>
+    </div>
+    <p class="story-lead">NāM is for the ones who were born radiant — visionaries, sensitives, builders, artists — whose light was too much for the spaces they grew up in.</p>
+    <p class="story-lead">It's not just a space. It's a place of restoration — full-spectrum creative souls reclaiming their rhythm, their voice, their power. A design-led co-creation campus on Koh Phangan, Thailand.</p>
+
+    <div class="pull">
+      <p>NāM means water. It <span>flows</span>. Adapts. Moves through. <span>Never fixed</span>.</p>
+      <p class="sub">A school of magic — where people arrive as beginners, and leave with the quiet mastery of those who've learned by doing.</p>
+    </div>
+
+    <div class="mv-grid">
+      <div class="mv-card">
+        <p class="kicker">Vision</p>
+        <p>A future where work isn't about output, performance, or feeding broken systems — it's about building what matters. Work that's alive. Self-directed. Rooted in meaning, not metrics.</p>
+      </div>
+      <div class="mv-card">
+        <p class="kicker">Mission</p>
+        <p>To create a space where builders, makers, and visionaries can do real, meaningful work — through intentional design, shared rhythm, and a culture of experimentation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUES ============ -->
+<section class="tight" style="background:var(--color-bg-surface)" id="values" aria-label="Values">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">What we value</p>
+      <h2 class="sec-title">How we move</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value"><span class="num">01</span><h3>Move With Intention</h3><p>We don't rush. We build things that last. If it's worth doing, it's worth doing well — and with purpose. Panic isn't strategy.</p></div>
+      <div class="value"><span class="num">02</span><h3>People Are the Real Resource</h3><p>Tools are great. But the real value is each other. We learn faster and build better when we work in community.</p></div>
+      <div class="value"><span class="num">03</span><h3>Do the Real Work</h3><p>We're not here for hype or hollow wins. We're here to build what matters — and that means showing up, even when it's hard.</p></div>
+      <div class="value"><span class="num">04</span><h3>Experiment Loudly</h3><p>You don't need permission to try. We test things in the open — messy, honest, and alive. Learning is the win.</p></div>
+      <div class="value"><span class="num">05</span><h3>Make Space for Depth</h3><p>We value focus, reflection, and clarity. We go beyond surface. Simple, not shallow.</p></div>
+      <div class="value"><span class="num">06</span><h3>Stay Human</h3><p>We don't optimize people. We work in a way that respects rhythm, energy, and being human.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section id="voice">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Voice &amp; Tone</p>
+      <h2 class="sec-title">How NāM speaks</h2>
+    </div>
+    <p class="voice-headline">The Magician meets the Fool — in boots, not robes.</p>
+    <p class="voice-core lead">NāM speaks with clarity, edge, and intent. Intelligent but never rigid. Playful, but never careless. Grounded, but open to the unknown. It doesn't perform or preach. It builds, questions, and experiments — and invites others to do the same.</p>
+
+    <div class="pillars">
+      <div class="pillar"><h4>Clear over Clever</h4><p>Say what matters. Let your words carry weight. No fluff, no filler.</p></div>
+      <div class="pillar"><h4>Grounded Wisdom</h4><p>Speak from experience. Don't over-promise. Just say what works.</p></div>
+      <div class="pillar"><h4>Experimental, Not Careless</h4><p>We take risks, but we're not reckless. We explore with purpose.</p></div>
+      <div class="pillar"><h4>Depth with Fire</h4><p>Keep it simple, but not shallow. Speak from the middle, not the mountaintop.</p></div>
+      <div class="pillar"><h4>Encouragement, Not Hype</h4><p>We trust our audience's intelligence. They already hold what they need.</p></div>
+      <div class="pillar"><h4>Not Just You — We</h4><p>This isn't a solo hero's journey. We're better when we build together.</p></div>
+    </div>
+
+    <div class="words">
+      <div class="words-panel love">
+        <h4>Words we love</h4>
+        <div class="chips" id="words-love"></div>
+      </div>
+      <div class="words-panel avoid">
+        <h4>Words we avoid</h4>
+        <div class="chips" id="words-avoid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO ============ -->
+<section id="logo">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Identity</p>
+      <h2 class="sec-title">Logo &amp; marks</h2>
+      <p class="lead">The NāM wordmark, with its architectural rule above. Try the colorways and backgrounds, then take what you need.</p>
+    </div>
+
+    <div class="logo-stage">
+      <div class="logo-preview" id="logoPreview" style="background:var(--nam-deep-green); color:var(--nam-sapling)">
+        <svg viewBox="0 0 74.5549 28.0001" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NāM wordmark"><path d="M55.7424 27.5041V0.688065H60.528L65.1074 16.1176L69.6455 0.688065H74.5549V27.5041H71.0069V5.96876L66.2213 22.1409H63.8697L59.0841 5.96876V27.5041H55.7424Z" fill="currentColor"/><path d="M35.1528 28.0001C32.7875 28.0001 30.9447 27.45 29.6246 26.3499C28.3319 25.2497 27.6855 23.7233 27.6855 21.7705C27.6855 19.9003 28.3044 18.4701 29.542 17.4799C30.7797 16.4898 32.6087 15.9948 35.029 15.9948H41.9599V15.3759C41.9599 13.7257 41.5749 12.5568 40.8048 11.8692C40.0347 11.1816 38.7283 10.8378 36.8855 10.8378C34.3827 10.8378 32.0861 11.4154 29.9959 12.5705L28.8407 9.47639C31.2885 8.18372 34.0664 7.53738 37.1743 7.53738C40.1172 7.53738 42.2625 8.14246 43.6102 9.35262C44.9853 10.5353 45.6729 12.4055 45.6729 14.9634V27.505H42.9088L42.4963 25.6073C41.3961 26.4049 40.241 27.01 39.0308 27.4225C37.8206 27.8076 36.528 28.0001 35.1528 28.0001ZM35.8129 24.6584C38.1232 24.6584 40.1722 24.0533 41.9599 22.8432V19.0477H35.1528C33.8876 19.0477 32.9525 19.2677 32.3474 19.7077C31.7698 20.1478 31.4811 20.8079 31.4811 21.688C31.4811 22.6781 31.8386 23.4207 32.5537 23.9158C33.2688 24.4109 34.3552 24.6584 35.8129 24.6584Z" fill="currentColor"/><path d="M0 27.5039V0.687879H4.5381L14.5632 20.4905V0.687879H18.0699V27.5039H14.3156L3.50672 6.1336V27.5039H0Z" fill="currentColor"/><path d="M43.8274 2.67029e-05V2.75039H30.0756V2.67029e-05H43.8274Z" fill="currentColor"/></svg>
+      </div>
+      <div class="logo-controls">
+        <div>
+          <p class="ctl-label">Wordmark color</p>
+          <div class="swatch-row" id="fillBtns">
+            <button class="fill-btn" data-fill="#a3b2a2" style="background:#a3b2a2" aria-pressed="true" aria-label="Sapling"></button>
+            <button class="fill-btn" data-fill="#f5f2e9" style="background:#f5f2e9" aria-pressed="false" aria-label="Cream"></button>
+            <button class="fill-btn" data-fill="#2b3a2c" style="background:#2b3a2c" aria-pressed="false" aria-label="Deep green"></button>
+            <button class="fill-btn" data-fill="#d56b45" style="background:#d56b45" aria-pressed="false" aria-label="Sunwashed"></button>
+          </div>
+        </div>
+        <div>
+          <p class="ctl-label">Background</p>
+          <div class="swatch-row" id="bgBtns">
+            <button class="bg-btn" data-bg="#2b3a2c" style="background:#2b3a2c" aria-pressed="true" aria-label="Deep green"></button>
+            <button class="bg-btn" data-bg="#f5f2e9" style="background:#f5f2e9" aria-pressed="false" aria-label="Cream"></button>
+            <button class="bg-btn" data-bg="#b8c8b7" style="background:#b8c8b7" aria-pressed="false" aria-label="Sage"></button>
+            <button class="bg-btn" data-bg="#393834" style="background:#393834" aria-pressed="false" aria-label="Slate"></button>
+          </div>
+        </div>
+        <div class="swatch-row">
+          <a class="btn btn-accent" id="dlActiveLogo" href="kit/logo-sapling.svg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download SVG</a>
+          <button class="btn btn-ghost-light" id="copySvg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy SVG</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="usage-grid">
+      <div class="usage do">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg>Do</h4>
+        <ul>
+          <li>Give the wordmark room to breathe — keep clear space equal to the height of the rule on every side.</li>
+          <li>Use approved colorways: sapling, cream, deep green, or sunwashed.</li>
+          <li>Place on deep green, cream, or photography with enough contrast to stay legible.</li>
+        </ul>
+      </div>
+      <div class="usage dont">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Don't</h4>
+        <ul>
+          <li>Recolor outside the palette, add gradients, shadows, or outlines.</li>
+          <li>Stretch, squeeze, rotate, or rearrange the wordmark and its rule.</li>
+          <li>Place on busy or low-contrast backgrounds where it disappears.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="marks-row">
+      <div class="mark"><img src="/assets/icon-nam-waves.png" alt="NāM waves mark"><span class="nm">Waves mark</span></div>
+      <div class="mark"><img src="/assets/asterisk.svg" alt="NāM asterisk"><span class="nm">Asterisk</span></div>
+      <div class="mark"><img src="/assets/footer-logo.svg" alt="Wordmark, sunwashed"><span class="nm">Wordmark · sunwashed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOR ============ -->
+<section id="color">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Color</p>
+      <h2 class="sec-title">An earth palette, with fire</h2>
+      <p class="lead">Grounded greens and warm neutrals, lifted by a single sunwashed accent. Click any swatch to copy its value.</p>
+      <span class="live-note"><span class="live-dot"></span> Generated live from the design system · <span id="syncedInline">tokens.json</span></span>
+    </div>
+
+    <div id="paletteBrand"></div>
+    <div id="paletteSystem"></div>
+
+    <div class="theme-demo" id="themeDemo" data-theme="light">
+      <div class="theme-demo-bar">
+        <span class="dt-title">Semantic tokens across themes</span>
+        <div class="theme-toggle" id="themeToggle" role="group" aria-label="Preview theme">
+          <button data-theme-set="light" aria-pressed="true">Light · Earth</button>
+          <button data-theme-set="dark" aria-pressed="false">Dark</button>
+          <button data-theme-set="studio" aria-pressed="false">Studio</button>
+        </div>
+      </div>
+      <div class="theme-demo-body">
+        <div class="sem-swatches" id="semSwatches"></div>
+        <div class="sample-card">
+          <h4>Do the real work</h4>
+          <p>The same components, re-skinned by semantic tokens. Swap the theme and watch surfaces, text, and accent adapt.</p>
+          <span class="sbtn">Join us</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section class="tight" style="background:var(--color-bg-surface)" id="type">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Typography</p>
+      <h2 class="sec-title">Three voices, one system</h2>
+      <p class="lead">Epilogue carries the display weight, Sometype Mono does the everyday work, and Cormorant Garamond adds an editorial note when it earns its place.</p>
+    </div>
+    <div class="fonts-grid">
+      <div class="font-card display"><div class="big">Aa</div><div class="role"><b>Epilogue</b><span>Display · headings &amp; statements</span></div></div>
+      <div class="font-card mono"><div class="big">Aa</div><div class="role"><b>Sometype Mono</b><span>Body &amp; UI · the everyday voice</span></div></div>
+      <div class="font-card editorial"><div class="big">Aa</div><div class="role"><b>Cormorant Garamond</b><span>Editorial · used sparingly</span></div></div>
+    </div>
+    <div class="scale" id="typeScale"></div>
+  </div>
+</section>
+
+<!-- ============ PHOTOGRAPHY ============ -->
+<section id="photography">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Photography</p>
+      <h2 class="sec-title">Place first, always</h2>
+      <p class="lead">Images should feel of this place and these people — natural light, real work, real texture. Hover a photo to download it.</p>
+    </div>
+    <div class="photo-notes">
+      <div class="photo-note shoot">
+        <h4>We shoot</h4>
+        <ul>
+          <li>The land and its light — boulders, jungle, water, sky.</li>
+          <li>Real work and real people, mid-process and unposed.</li>
+          <li>Texture, craft, and place-specific moments and ritual.</li>
+        </ul>
+      </div>
+      <div class="photo-note avoid">
+        <h4>We avoid</h4>
+        <ul>
+          <li>Posed corporate stock and hustle imagery.</li>
+          <li>Over-filtered, high-gloss, anything that could be anywhere.</li>
+          <li>Staged "productivity" clichés that don't reflect the work.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ============ DOWNLOADS ============ -->
+<section id="downloads">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Asset Manager</p>
+      <h2 class="sec-title">Download the brand kit</h2>
+      <p class="lead">Everything approved for use, in one place. Logos, design tokens, and marks — grab what you need.</p>
+    </div>
+
+    <p class="dl-group-label">Identity</p>
+    <div class="dl-grid" id="dlIdentity"></div>
+
+    <p class="dl-group-label">Design tokens</p>
+    <div class="dl-grid" id="dlTokens"></div>
+
+    <p class="dl-group-label">Marks &amp; texture</p>
+    <div class="dl-grid" id="dlMarks"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div>
+      <svg class="logo" viewBox="0 0 74.5549 28.0001" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NāM"><path d="M55.7424 27.5041V0.688065H60.528L65.1074 16.1176L69.6455 0.688065H74.5549V27.5041H71.0069V5.96876L66.2213 22.1409H63.8697L59.0841 5.96876V27.5041H55.7424Z" fill="currentColor"/><path d="M35.1528 28.0001C32.7875 28.0001 30.9447 27.45 29.6246 26.3499C28.3319 25.2497 27.6855 23.7233 27.6855 21.7705C27.6855 19.9003 28.3044 18.4701 29.542 17.4799C30.7797 16.4898 32.6087 15.9948 35.029 15.9948H41.9599V15.3759C41.9599 13.7257 41.5749 12.5568 40.8048 11.8692C40.0347 11.1816 38.7283 10.8378 36.8855 10.8378C34.3827 10.8378 32.0861 11.4154 29.9959 12.5705L28.8407 9.47639C31.2885 8.18372 34.0664 7.53738 37.1743 7.53738C40.1172 7.53738 42.2625 8.14246 43.6102 9.35262C44.9853 10.5353 45.6729 12.4055 45.6729 14.9634V27.505H42.9088L42.4963 25.6073C41.3961 26.4049 40.241 27.01 39.0308 27.4225C37.8206 27.8076 36.528 28.0001 35.1528 28.0001ZM35.8129 24.6584C38.1232 24.6584 40.1722 24.0533 41.9599 22.8432V19.0477H35.1528C33.8876 19.0477 32.9525 19.2677 32.3474 19.7077C31.7698 20.1478 31.4811 20.8079 31.4811 21.688C31.4811 22.6781 31.8386 23.4207 32.5537 23.9158C33.2688 24.4109 34.3552 24.6584 35.8129 24.6584Z" fill="currentColor"/><path d="M0 27.5039V0.687879H4.5381L14.5632 20.4905V0.687879H18.0699V27.5039H14.3156L3.50672 6.1336V27.5039H0Z" fill="currentColor"/><path d="M43.8274 2.67029e-05V2.75039H30.0756V2.67029e-05H43.8274Z" fill="currentColor"/></svg>
+      <p class="f-tag">A living reference for the NāM brand. Stewarded, not finished — it evolves with the design system.</p>
+    </div>
+    <div class="f-links">
+      <a href="/">nam.space</a>
+      <a href="https://kinhaus.space" target="_blank" rel="noopener">KIN Haus</a>
+      <a href="/blog/">Blog</a>
+      <a href="mailto:alex@alexduffner.com">Contact</a>
+    </div>
+    <div class="synced"><span class="live-dot"></span> <span id="syncedFooter">Tokens synced from the NāM design system.</span></div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="lb-next" id="lbNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast" role="status" aria-live="polite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span id="toastMsg">Copied</span></div>
+
+<!-- Inline snapshot of tokens.json so the color/type sections render without a server (file://).
+     Kept in sync by `npm run sync:tokens`; the live fetch below overrides it when served. -->
+<script id="nam-token-data" type="application/json">{
+  "$schema": "https://nam.space/design-tokens/v1",
+  "generated": "2026-03-19T09:07:31.307Z",
+  "primitives": {
+    "--nam-deep-green": "#2b3a2c",
+    "--nam-foliage": "#49584a",
+    "--nam-sage": "#b8c8b7",
+    "--nam-sapling": "#a3b2a2",
+    "--nam-oat": "#e7e2d6",
+    "--nam-cream": "#f5f2e9",
+    "--nam-beige": "#ccc4b5",
+    "--nam-white": "#ffffff",
+    "--nam-slate": "#393834",
+    "--nam-granite": "#61605c",
+    "--nam-pebble": "#7d7970",
+    "--nam-sunwashed": "#d56b45",
+    "--nam-sunwashed-hover": "#c25a37",
+    "--nam-sunwashed-soft": "rgba(213, 107, 69, 0.08)",
+    "--nam-gold": "#c99a6a",
+    "--nam-gold-soft": "rgba(201, 154, 106, 0.15)",
+    "--nam-moss": "#5d7a54",
+    "--nam-copper": "#a8724a",
+    "--nam-indigo": "#6366f1",
+    "--nam-violet": "#8b5cf6",
+    "--nam-amber": "#f59e0b",
+    "--nam-entity-kinhaus": "#D97706",
+    "--nam-entity-ai-meetup": "#7C3AED",
+    "--nam-entity-island-connection": "#059669",
+    "--nam-entity-nam-space": "#0891B2",
+    "--nam-entity-external": "#6B7280",
+    "--nam-status-active": "#22c55e",
+    "--nam-status-paused": "#f59e0b",
+    "--nam-status-archived": "#525252",
+    "--nam-priority-high": "#ef4444",
+    "--nam-priority-medium": "#f59e0b",
+    "--nam-priority-low": "#6b7280"
+  },
+  "typography": {
+    "--font-display": "\"Epilogue\", sans-serif",
+    "--font-mono": "\"Sometype Mono\", monospace",
+    "--font-editorial": "\"Cormorant Garamond\", serif",
+    "--text-xs": "0.75rem",
+    "--text-sm": "0.875rem",
+    "--text-base": "1rem",
+    "--text-lg": "1.125rem",
+    "--text-xl": "1.5rem",
+    "--text-2xl": "2rem",
+    "--text-3xl": "3rem",
+    "--text-4xl": "4.5rem",
+    "--text-5xl": "7rem",
+    "--leading-tight": "1.1",
+    "--leading-snug": "1.25",
+    "--leading-normal": "1.5",
+    "--leading-relaxed": "1.625",
+    "--tracking-tight": "-0.02em",
+    "--tracking-normal": "0em",
+    "--tracking-wide": "0.05em",
+    "--tracking-wider": "0.1em",
+    "--weight-normal": "400",
+    "--weight-medium": "500",
+    "--weight-semibold": "600",
+    "--weight-bold": "700"
+  },
+  "spacing": {
+    "--space-0": "0",
+    "--space-1": "0.25rem",
+    "--space-2": "0.5rem",
+    "--space-3": "0.75rem",
+    "--space-4": "1rem",
+    "--space-5": "1.25rem",
+    "--space-6": "1.5rem",
+    "--space-8": "2rem",
+    "--space-10": "2.5rem",
+    "--space-12": "3rem",
+    "--space-16": "4rem",
+    "--space-20": "5rem",
+    "--space-24": "6rem",
+    "--grid-margin": "1.5rem",
+    "--grid-gutter": "2.5rem"
+  },
+  "motion": {
+    "--ease-water": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+    "--ease-emerge": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "--ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--ease-out": "cubic-bezier(0, 0, 0.2, 1)",
+    "--duration-fast": "0ms",
+    "--duration-base": "0ms",
+    "--duration-slow": "0ms",
+    "--duration-slower": "0ms",
+    "--duration-cinematic": "0ms"
+  },
+  "radius": {
+    "--radius-none": "0",
+    "--radius-sm": "4px",
+    "--radius-md": "8px",
+    "--radius-lg": "12px",
+    "--radius-xl": "20px",
+    "--radius-2xl": "28px",
+    "--radius-full": "9999px"
+  },
+  "themes": {
+    "light": {
+      "--color-bg-surface": "#ede9df",
+      "--color-border": "#d9d4c9",
+      "--color-border-subtle": "#e4e0d7",
+      "--color-selection": "rgba(213, 107, 69, 0.2)"
+    },
+    "dark": {
+      "--color-bg-base": "#0a0a0a",
+      "--color-bg-surface": "#141414",
+      "--color-bg-card": "#1a1a1a",
+      "--color-bg-elevated": "#1a1a1a",
+      "--color-text-primary": "#fafafa",
+      "--color-text-secondary": "#a3a3a3",
+      "--color-text-muted": "#525252",
+      "--color-text-heading": "#fafafa",
+      "--color-accent-hover": "#818cf8",
+      "--color-accent-soft": "rgba(99, 102, 241, 0.1)",
+      "--color-border": "#262626",
+      "--color-border-subtle": "#1a1a1a",
+      "--color-selection": "rgba(99, 102, 241, 0.2)"
+    },
+    "studio": {
+      "--color-bg-base": "#0d0c0b",
+      "--color-bg-surface": "#181716",
+      "--color-bg-card": "#e8e6e4",
+      "--color-bg-elevated": "#181716",
+      "--color-bg-glass": "rgba(255, 255, 255, 0.04)",
+      "--color-text-primary": "#faf8f5",
+      "--color-text-secondary": "#a8a5a0",
+      "--color-text-muted": "#8a8782",
+      "--color-text-heading": "#faf8f5",
+      "--color-accent-hover": "#d4a876",
+      "--color-border": "rgba(255, 255, 255, 0.1)",
+      "--color-border-subtle": "rgba(255, 255, 255, 0.05)",
+      "--color-selection": "rgba(201, 154, 106, 0.2)"
+    }
+  }
+}</script>
+
+<script>
+(function () {
+  "use strict";
+
+  var ICON_COPY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+  var ICON_DL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+
+  /* ---------- toast + copy ---------- */
+  var toast = document.getElementById('toast');
+  var toastMsg = document.getElementById('toastMsg');
+  var toastTimer;
+  function showToast(msg) {
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1600);
+  }
+  function copyText(text, label) {
+    var done = function () { showToast((label || 'Copied') + ' · ' + text); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text); done(); });
+    } else { fallbackCopy(text); done(); }
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  /* ---------- luminance for swatch label contrast ---------- */
+  function readableOn(value) {
+    var m = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.exec((value || '').trim());
+    if (!m) return null; // rgba/other → let CSS default handle it
+    var hex = m[1];
+    if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    var r = parseInt(hex.slice(0, 2), 16), g = parseInt(hex.slice(2, 4), 16), b = parseInt(hex.slice(4, 6), 16);
+    var lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return lum > 0.62 ? '#393834' : '#f5f2e9';
+  }
+
+  /* ---------- words (from voice) ---------- */
+  var loveWords = ["Build","Rhythm","Ritual","Real work","Alignment","Play","Clarity","Curiosity","Magic","Focus","Precision","Flow","Depth","Practice","Experiment","Momentum","Grounded","Support","Community","Dare","Brave","Yourself"];
+  var avoidWords = ["Hustle","Grind","Optimize","Scale fast","Guru","Manifest","High-vibe","Productivity hacks","Exclusive","Premium","Retreat","Escape","Thought leadership","Luxury","Fluff"];
+  function renderChips(id, words) {
+    var el = document.getElementById(id);
+    el.innerHTML = words.map(function (w) { return '<span class="chip">' + w + '</span>'; }).join('');
+  }
+  renderChips('words-love', loveWords);
+  renderChips('words-avoid', avoidWords);
+
+  /* ---------- color palette (living, from tokens.json) ---------- */
+  function prettyName(key) { return key.replace(/^--nam-/, '').replace(/-/g, ' '); }
+  function groupOf(key) {
+    var n = key.replace('--nam-', '');
+    if (['deep-green','foliage','sage','sapling','oat','cream','beige','white'].indexOf(n) > -1) return 'earth';
+    if (['slate','granite','pebble'].indexOf(n) > -1) return 'neutral';
+    if (n.indexOf('sunwashed') === 0 || ['gold','gold-soft','moss','copper'].indexOf(n) > -1) return 'accent';
+    if (n.indexOf('entity') === 0) return 'entity';
+    if (n.indexOf('status') === 0) return 'status';
+    if (n.indexOf('priority') === 0) return 'priority';
+    if (['indigo','violet','amber'].indexOf(n) > -1) return 'aux';
+    return 'other';
+  }
+  function swatchHTML(key, value) {
+    var txt = readableOn(value);
+    var style = 'background:' + value + (txt ? (';color:' + txt) : '');
+    return '<button class="swatch" data-copy="' + value + '" data-label="' + prettyName(key) + '" aria-label="Copy ' + value + '">' +
+      '<span class="chip-color" style="' + style + '"><span class="copy-hint" style="' + (txt ? 'color:' + txt : '') + '">' + ICON_COPY + ' Copy</span></span>' +
+      '<span class="meta"><span class="nm">' + prettyName(key) + '</span><span class="val">' + value + '</span></span>' +
+      '</button>';
+  }
+  function renderGroup(title, keys, primitives, target) {
+    var items = keys.filter(function (k) { return primitives[k]; });
+    if (!items.length) return;
+    var html = '<p class="group-label">' + title + '</p><div class="swatches">';
+    html += items.map(function (k) { return swatchHTML(k, primitives[k]); }).join('');
+    html += '</div>';
+    target.insertAdjacentHTML('beforeend', html);
+  }
+  function renderPalette(primitives) {
+    var buckets = { earth: [], neutral: [], accent: [], entity: [], status: [], priority: [], aux: [], other: [] };
+    Object.keys(primitives).forEach(function (k) { buckets[groupOf(k)].push(k); });
+    var brand = document.getElementById('paletteBrand');
+    var system = document.getElementById('paletteSystem');
+    brand.innerHTML = '';
+    system.innerHTML = '';
+    renderGroup('Earth palette', buckets.earth, primitives, brand);
+    renderGroup('Warm neutrals', buckets.neutral, primitives, brand);
+    renderGroup('Accent', buckets.accent.concat(buckets.aux), primitives, brand);
+    var sys = buckets.entity.concat(buckets.status, buckets.priority, buckets.other);
+    renderGroup('System colors', sys, primitives, system);
+  }
+
+  /* ---------- type scale (living) ---------- */
+  var SCALE_KEYS = ['--text-xs','--text-sm','--text-base','--text-lg','--text-xl','--text-2xl','--text-3xl','--text-4xl','--text-5xl'];
+  function remToPx(v) { var m = /([\d.]+)rem/.exec(v); return m ? Math.round(parseFloat(m[1]) * 16) : v; }
+  function renderScale(typography) {
+    var el = document.getElementById('typeScale');
+    var rows = SCALE_KEYS.filter(function (k) { return typography[k]; }).map(function (k) {
+      var v = typography[k];
+      var px = remToPx(v);
+      var cap = Math.min(parseFloat(v), 4); // cap preview size so very large steps still fit a row
+      return '<div class="scale-row"><span class="sample" style="font-size:' + cap + 'rem">NāM</span>' +
+        '<span class="tag">' + k.replace('--text-', 'text-') + ' · ' + px + 'px</span></div>';
+    });
+    el.innerHTML = rows.join('');
+  }
+
+  /* ---------- semantic theme preview ---------- */
+  var SEM = [
+    ['--color-bg-base','bg base'], ['--color-bg-surface','bg surface'],
+    ['--color-bg-card','bg card'], ['--color-bg-elevated','bg elevated'],
+    ['--color-text-primary','text primary'], ['--color-text-secondary','text secondary'],
+    ['--color-text-muted','text muted'], ['--color-text-heading','text heading'],
+    ['--color-accent','accent'], ['--color-accent-hover','accent hover'],
+    ['--color-border','border']
+  ];
+  var themeDemo = document.getElementById('themeDemo');
+  function resolveVar(container, name) {
+    var p = document.createElement('span');
+    p.style.color = 'var(' + name + ')';
+    p.style.position = 'absolute';
+    p.style.visibility = 'hidden';
+    container.appendChild(p);
+    var v = getComputedStyle(p).color;
+    container.removeChild(p);
+    return v;
+  }
+  function rgbToHex(rgb) {
+    var m = /rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(rgb);
+    if (!m) return rgb;
+    return '#' + [m[1], m[2], m[3]].map(function (n) { return ('0' + parseInt(n, 10).toString(16)).slice(-2); }).join('');
+  }
+  function buildSem() {
+    var el = document.getElementById('semSwatches');
+    el.innerHTML = SEM.map(function (t) {
+      return '<button class="sem" data-copy="' + t[0] + '" data-label="' + t[1] + '" aria-label="Copy token ' + t[0] + '">' +
+        '<span class="sw" style="background:var(' + t[0] + ')"></span>' +
+        '<span class="nm"><b>' + t[1] + '</b><span class="val"></span></span></button>';
+    }).join('');
+    updateSemValues();
+  }
+  function updateSemValues() {
+    var rows = document.querySelectorAll('#semSwatches .sem');
+    rows.forEach(function (row) {
+      var name = row.getAttribute('data-copy');
+      var hex = rgbToHex(resolveVar(themeDemo, name));
+      row.querySelector('.val').textContent = hex;
+    });
+  }
+  function setupThemeToggle() {
+    var btns = document.querySelectorAll('#themeToggle button');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var t = b.getAttribute('data-theme-set');
+        themeDemo.setAttribute('data-theme', t);
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        updateSemValues();
+      });
+    });
+  }
+
+  /* ---------- logo colorway / bg / download / copy ---------- */
+  var FILL_TO_FILE = { '#a3b2a2': 'logo-sapling.svg', '#f5f2e9': 'logo-cream.svg', '#2b3a2c': 'logo-deepgreen.svg', '#d56b45': 'logo-sunwashed.svg' };
+  var activeFill = '#a3b2a2';
+  var preview = document.getElementById('logoPreview');
+  var dlActive = document.getElementById('dlActiveLogo');
+  function setupLogo() {
+    document.querySelectorAll('#fillBtns .fill-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        activeFill = b.getAttribute('data-fill');
+        preview.style.color = activeFill;
+        document.querySelectorAll('#fillBtns .fill-btn').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        dlActive.setAttribute('href', 'kit/' + FILL_TO_FILE[activeFill]);
+      });
+    });
+    document.querySelectorAll('#bgBtns .bg-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        preview.style.background = b.getAttribute('data-bg');
+        document.querySelectorAll('#bgBtns .bg-btn').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      });
+    });
+    document.getElementById('copySvg').addEventListener('click', function () {
+      var svg = preview.querySelector('svg').outerHTML.replace(/currentColor/g, activeFill);
+      copyText(svg, 'Logo SVG copied');
+    });
+  }
+
+  /* ---------- downloads ---------- */
+  var DL = {
+    dlIdentity: [
+      ['Wordmark · sapling', 'SVG', 'kit/logo-sapling.svg'],
+      ['Wordmark · cream', 'SVG', 'kit/logo-cream.svg'],
+      ['Wordmark · deep green', 'SVG', 'kit/logo-deepgreen.svg'],
+      ['Wordmark · sunwashed', 'SVG', 'kit/logo-sunwashed.svg'],
+      ['Favicon', 'SVG', '/assets/favicon.svg'],
+      ['Favicon', 'PNG', '/assets/favicon.png']
+    ],
+    dlTokens: [
+      ['Light theme tokens', 'CSS', 'tokens-light.css'],
+      ['All themes', 'CSS', 'tokens.css'],
+      ['Token data', 'JSON', 'tokens.json']
+    ],
+    dlMarks: [
+      ['Waves mark', 'PNG', '/assets/icon-nam-waves.png'],
+      ['Asterisk', 'SVG', '/assets/asterisk.svg'],
+      ['River texture', 'SVG', '/assets/river-texture.svg']
+    ]
+  };
+  function renderDownloads() {
+    Object.keys(DL).forEach(function (id) {
+      var el = document.getElementById(id);
+      el.innerHTML = DL[id].map(function (d) {
+        return '<a class="dl-card" href="' + d[2] + '" download>' +
+          '<span class="dl-ic">' + ICON_DL + '</span>' +
+          '<span><span class="nm">' + d[0] + '</span><span class="fmt">' + d[1] + '</span></span></a>';
+      }).join('');
+    });
+  }
+
+  /* ---------- gallery + lightbox ---------- */
+  var PHOTOS = [
+    ['/assets/site-landscape-palms-boulders.jpg', 'The land — palms & boulders'],
+    ['/assets/site-boulders-jungle.jpeg', 'The boulder, in jungle'],
+    ['/assets/palms-canopy-sunhalo.jpg', 'Canopy light'],
+    ['/assets/site-monk-blessing.jpeg', 'Blessing the site'],
+    ['/assets/alex-boulder-phangan-web.jpg', 'On the land'],
+    ['/assets/deep-work-1.jpg', 'Deep work'],
+    ['/assets/cm-outdoor.jpg', 'Outdoor commons'],
+    ['/founder-house/assets/hero-poolside.jpg', 'Gathering, poolside'],
+    ['/founder-house/assets/yoga-jungle.jpg', 'Yoga in the jungle'],
+    ['/founder-house/assets/collage-deck-group.jpg', 'Community on the deck'],
+    ['/assets/kin-haus-2026-03-kin-haus-party-1-dj-booth-nightlife-web.jpg', 'KIN Haus, after dark'],
+    ['/assets/masterplan-web.png', 'The masterplan']
+  ];
+  function baseName(p) { return p.split('/').pop(); }
+  function renderGallery() {
+    var el = document.getElementById('gallery');
+    el.innerHTML = PHOTOS.map(function (p, i) {
+      return '<button class="gtile" data-i="' + i + '" aria-label="View ' + p[1] + '">' +
+        '<img src="' + p[0] + '" alt="' + p[1] + '" loading="lazy">' +
+        '<span class="glabel">' + p[1] + '</span>' +
+        '<a class="gdl" href="' + p[0] + '" download="' + baseName(p[0]) + '" aria-label="Download ' + p[1] + '" data-dl>' + ICON_DL + '</a>' +
+        '</button>';
+    }).join('');
+  }
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  var lbIndex = 0;
+  function openLb(i) {
+    lbIndex = (i + PHOTOS.length) % PHOTOS.length;
+    lbImg.src = PHOTOS[lbIndex][0]; lbImg.alt = PHOTOS[lbIndex][1]; lbCap.textContent = PHOTOS[lbIndex][1];
+    lb.classList.add('open'); document.body.style.overflow = 'hidden';
+  }
+  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  function setupGallery() {
+    document.getElementById('gallery').addEventListener('click', function (e) {
+      if (e.target.closest('[data-dl]')) { e.stopPropagation(); return; } // let native download happen
+      var tile = e.target.closest('.gtile');
+      if (tile) openLb(parseInt(tile.getAttribute('data-i'), 10));
+    });
+    document.getElementById('lbClose').addEventListener('click', closeLb);
+    document.getElementById('lbPrev').addEventListener('click', function () { openLb(lbIndex - 1); });
+    document.getElementById('lbNext').addEventListener('click', function () { openLb(lbIndex + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') openLb(lbIndex - 1);
+      if (e.key === 'ArrowRight') openLb(lbIndex + 1);
+    });
+  }
+
+  /* ---------- copy delegation (swatches + semantic tokens) ---------- */
+  function setupCopy() {
+    document.body.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-copy]');
+      if (!t) return;
+      copyText(t.getAttribute('data-copy'), (t.getAttribute('data-label') || 'Copied'));
+    });
+  }
+
+  /* ---------- scrollspy ---------- */
+  function setupScrollspy() {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          links.forEach(function (a) { a.classList.remove('active'); });
+          if (map[en.target.id]) map[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-130px 0px -65% 0px', threshold: 0 });
+    ['story','voice','logo','color','type','photography','downloads'].forEach(function (id) {
+      var s = document.getElementById(id); if (s) obs.observe(s);
+    });
+  }
+
+  /* ---------- synced date ---------- */
+  function setSynced(generated) {
+    if (!generated) return;
+    var d = new Date(generated);
+    if (isNaN(d)) return;
+    var str = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    document.getElementById('syncedInline').textContent = 'synced ' + str;
+    document.getElementById('syncedFooter').textContent = 'Tokens synced from the NāM design system · ' + str;
+  }
+
+  /* ---------- init ---------- */
+  setupCopy();
+  setupLogo();
+  renderDownloads();
+  renderGallery();
+  setupGallery();
+  buildSem();
+  setupThemeToggle();
+  setupScrollspy();
+
+  function applyTokens(tokens) {
+    renderPalette(tokens.primitives || {});
+    renderScale(tokens.typography || {});
+    setSynced(tokens.generated);
+  }
+
+  // Render from the inline snapshot first so the page works offline / over file://.
+  var inlineTokens = null;
+  var dataEl = document.getElementById('nam-token-data');
+  if (dataEl) { try { var parsed = JSON.parse(dataEl.textContent); if (parsed && parsed.primitives) inlineTokens = parsed; } catch (e) {} }
+  if (inlineTokens) applyTokens(inlineTokens);
+
+  // Refresh from the live token file when served over http(s) — keeps the guide living.
+  fetch('tokens.json')
+    .then(function (r) { if (!r.ok) throw new Error('fetch failed'); return r.json(); })
+    .then(function (tokens) { applyTokens(tokens); })
+    .catch(function () {
+      if (!inlineTokens) {
+        document.getElementById('paletteBrand').innerHTML = '<p class="group-label">Palette unavailable — run <code>npm run sync:tokens</code>.</p>';
+      }
+    });
+})();
+</script>
+
+<!-- Microsoft Clarity (consistent with the rest of nam.space) -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "vlm8vtw4kc");
+</script>
+</body>
+</html>

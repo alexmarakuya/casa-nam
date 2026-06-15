@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "sync:tokens": "mkdir -p nam-space/brand && cp ../nam-design-system/packages/tokens/dist/tokens.css ../nam-design-system/packages/tokens/dist/tokens-light.css ../nam-design-system/packages/tokens/dist/tokens.json nam-space/brand/ && node scripts/embed-tokens.js"
+  },
   "dependencies": {
     "puppeteer": "^24.37.5"
   }
